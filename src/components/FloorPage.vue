@@ -1,8 +1,15 @@
 <template>
     <div class="floorPage">
-        <img src="../assets/electricity.png" class="shadow" alt="">
-        <img src="../assets/ele.gif" alt="">
-        <a id="link" href="http://liuyonghua.cn"></a>
+        <div id="ele" v-if="ele.show">
+            <img src="../assets/electricity.png" :class="{shadow:ele.gif}" alt="">
+            <img src="../assets/ele.gif" alt="" v-if="ele.gif">
+            <a class="link" href="http://liuyonghua.cn"></a>
+        </div>
+        <div id="oil" v-if="oil.show">
+            <img src="../assets/oil.png" :class="{shadow:oil.gif}" alt="">
+            <img src="../assets/oil.gif" alt="" v-if="oil.gif">
+            <a class="link" href="http://liuyonghua.cn"></a>
+        </div>
     </div>
 </template>
 
@@ -10,9 +17,23 @@
     export default {
         name: "FloorPage",
         data() {
-            return {};
+            return {
+                ele: {
+                    show: true,
+                    gif: true,
+                    png: true,
+                },
+                oil: {
+                    show: false,
+                    gif: true,
+                    png: true,
+                },
+            };
         },
         created() {
+            setTimeout(() => {
+                this.ele.gif = false
+            }, 1000);
         }
     }
 </script>
@@ -39,7 +60,7 @@
         z-index: 100;
     }
 
-    #link {
+    .link {
         width: 1rem;
         height: 1rem;
         left: 1rem;
