@@ -1,8 +1,6 @@
 <template>
     <div id="dream-ques">
-        <div class="title">
-            {{showWord}}
-        </div>
+        <div class="title">{{showWord}}</div>
         <transition name="fade">
             <div class="choose" v-if="showUnKnow">
                 <div class="choose-content" @click="chooseAnswer('a')">
@@ -27,7 +25,7 @@
         name: "DreamQuestion",
         data() {
             return {
-                word: "暮色来临 你做噩梦了 还伴随着左腿抽筋 你一面揉腿，一面想？",
+                word: "暮色来临\n你做噩梦了\n还伴随着左腿抽筋\n你一面揉腿，一面想？",
                 showWord: '',
                 showUnKnow: false,
                 active: undefined
@@ -74,6 +72,7 @@
         color: #fff;
         letter-spacing: 0.08rem;
         font-weight: 300;
+        white-space: pre;
     }
 
     .choose {
