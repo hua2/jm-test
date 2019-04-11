@@ -1,17 +1,20 @@
 <template>
     <div id="app">
-        <SunQuestion></SunQuestion>
+        <!--<SunQuestion></SunQuestion>-->
+        <DreamQuestion></DreamQuestion>
     </div>
 </template>
 
 <script>
 
-    import SunQuestion from "./components/SunQuestion";
+    // import SunQuestion from "./components/SunQuestion";
+    import DreamQuestion from "./components/DreamQuestion";
 
     export default {
         name: 'app',
         components: {
-            SunQuestion
+            DreamQuestion,
+            // SunQuestion
         }
 
     }
