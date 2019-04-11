@@ -1,7 +1,7 @@
 <template>
     <div class="floorPage">
         <div id="ele" v-if="ele.show">
-            <img src="../assets/electricity.png" :class="{shadow:ele.gif}" alt="">
+            <img src="../assets/electricity-2.png" :class="{shadow:ele.gif}" alt="">
             <img src="../assets/ele.gif" alt="" v-if="ele.gif">
             <a class="link" href="http://liuyonghua.cn"></a>
         </div>
