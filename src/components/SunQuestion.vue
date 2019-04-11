@@ -12,11 +12,11 @@
         <transition name="fade">
             <div class="choose" v-if="showUnKnow">
                 <div class="choose-left" @click="chooseAnswer('a')">
-                    <img src="../assets/unselected.png" alt="">
+                    <span class="button"></span>
                     日出
                 </div>
                 <div class="choose-right" @click="chooseAnswer('d')">
-                    <img src="../assets/unselected.png" alt="">
+                    <span class="button"></span>
                     日落
                 </div>
             </div>
@@ -115,13 +115,37 @@
         width: 2rem;
         text-align: center;
     }
-    .choose-left img{
-         width: 0.26rem;
-         height: 0.28rem;
-     }
-    .choose-right img{
+
+    .choose-left .button {
         width: 0.26rem;
         height: 0.28rem;
+        display: block;
+        background: url("../assets/unselected.png");
+        background-size: 100% 100%;
+    }
+
+    .choose-left .button.active {
+        width: 0.26rem;
+        height: 0.28rem;
+        display: block;
+        background: url("../assets/selected.png");
+        background-size: 100% 100%;
+    }
+
+    .choose-right .button {
+        width: 0.26rem;
+        height: 0.28rem;
+        display: block;
+        background: url("../assets/unselected.png");
+        background-size: 100% 100%;
+    }
+
+    .choose-right .button.active {
+        width: 0.26rem;
+        height: 0.28rem;
+        display: block;
+        background: url("../assets/selected.png");
+        background-size: 100% 100%;
     }
 
     .fade-enter-active, .fade-leave-active {
