@@ -11,13 +11,13 @@
         </transition>
         <transition name="fade">
             <div class="choose" v-if="showUnKnow">
-                <div class="choose-left" @click="chooseAnswer('a')">
-                    <span class="button"></span>
-                    日出
+                <div class="choose-content" @click="chooseAnswer('a')">
+                    <span class="button" :class="{active:active ==='a'}"></span>
+                    <span class="text">日出</span>
                 </div>
-                <div class="choose-right" @click="chooseAnswer('d')">
-                    <span class="button"></span>
-                    日落
+                <div class="choose-content" @click="chooseAnswer('d')">
+                    <span class="button" :class="{active:active ==='d'}"></span>
+                    <span class="text">日落</span>
                 </div>
             </div>
         </transition>
@@ -66,7 +66,7 @@
     }
 
     .title {
-        width: 100%;
+        width: calc(100% - 0.56rem);
         height: 1.5rem;
         padding: 2.08rem 0 0.2rem 0.56rem;
         font-size: 0.34rem;
@@ -76,17 +76,17 @@
     }
 
     .img {
-        width: 88%;
+        width: 100%;
         height: 3.42rem;
-        margin: 0 auto;
         padding: 0.15rem 0;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
     }
 
     .img img {
         width: 2.58rem;
         opacity: 0.6;
+        margin: 0 0.3rem;
         transition: opacity .5s;
         box-shadow: -1px 1px 3px 5px rgba(0, 0, 0, 0.8);
     }
@@ -103,47 +103,32 @@
         font-weight: 300;
         color: #fff;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
     }
 
-    .choose .choose-left {
-        width: 2rem;
+    .choose .choose-content {
+        width: 2.58rem;
+        margin: 0 0.3rem;
         text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
-    .choose .choose-right {
-        width: 2rem;
-        text-align: center;
+    .choose-content .text {
+        width: 1rem;
+        display: block;
     }
 
-    .choose-left .button {
+    .choose-content .button {
         width: 0.26rem;
         height: 0.28rem;
         display: block;
+        margin: auto 0;
         background: url("../assets/unselected.png");
         background-size: 100% 100%;
     }
 
-    .choose-left .button.active {
-        width: 0.26rem;
-        height: 0.28rem;
-        display: block;
-        background: url("../assets/selected.png");
-        background-size: 100% 100%;
-    }
-
-    .choose-right .button {
-        width: 0.26rem;
-        height: 0.28rem;
-        display: block;
-        background: url("../assets/unselected.png");
-        background-size: 100% 100%;
-    }
-
-    .choose-right .button.active {
-        width: 0.26rem;
-        height: 0.28rem;
-        display: block;
+    .choose-content .button.active {
         background: url("../assets/selected.png");
         background-size: 100% 100%;
     }
