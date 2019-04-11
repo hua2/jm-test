@@ -3,6 +3,7 @@
         <!--<SunQuestion></SunQuestion>-->
         <!--<DreamQuestion></DreamQuestion>-->
         <FloorPage></FloorPage>
+        <MovieQuestion></MovieQuestion>
     </div>
 </template>
 
@@ -10,12 +11,14 @@
 
     // import SunQuestion from "./components/SunQuestion";
     // import DreamQuestion from "./components/DreamQuestion";
-    import FloorPage from "./components/FloorPage";
+    // import FloorPage from "./components/FloorPage";
+    import MovieQuestion from "./components/MovieQuestion";
 
     export default {
         name: 'app',
         components: {
-            FloorPage,
+            MovieQuestion,
+            // FloorPage,
             // DreamQuestion,
             // SunQuestion
         }
