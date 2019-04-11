@@ -1,7 +1,7 @@
 <template>
     <div class="floorPage">
-        <img src="../assets/oil.png" class="shadow" alt="">
-        <img src="../assets/oil.gif" alt="">
+        <img src="../assets/electricity.png" class="shadow" alt="">
+        <img src="../assets/ele.gif" alt="">
         <a id="link" href="http://liuyonghua.cn"></a>
     </div>
 </template>

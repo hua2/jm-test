@@ -67,14 +67,14 @@
     .title {
         width: calc(100% - 0.56rem);
         height: 2.5rem;
+        line-height: 0.4rem;
         padding: 2.08rem 0 0.2rem 0.56rem;
         font-size: 0.28rem;
-        color: #fff;
         letter-spacing: 0.08rem;
-        font-weight: 300;
+        font-weight: 900;
         white-space: pre;
+        color: rgba(255,255,255,1);
     }
-
     .choose {
         width: 100%;
         height: 1rem;
@@ -96,6 +96,7 @@
     .choose-content .text {
         padding-left: 0.2rem;
         display: block;
+        font-weight: 400;
         letter-spacing: 0.02rem;
     }
 
