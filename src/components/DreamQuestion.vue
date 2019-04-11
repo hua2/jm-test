@@ -28,7 +28,8 @@
                 word: "暮色来临\n你做噩梦了\n还伴随着左腿抽筋\n你一面揉腿，一面想？",
                 showWord: '',
                 showUnKnow: false,
-                active: undefined
+                active: undefined,
+                chooseAnswerId:undefined
             }
         },
         created() {
@@ -45,11 +46,14 @@
             }, 200);
         },
         methods: {
-            chooseAnswer: function (a) {
-                this.active = a;
-                setTimeout(() => {
-                    this.$bus.$emit("answer", a);
-                }, 200);
+            chooseAnswer: function (ans) {
+                this.active = ans;
+                if(this.chooseAnswerId){
+                    clearTimeout(this.chooseAnswerId)
+                }
+                this.chooseAnswerId = setTimeout(() => {
+                    this.$bus.$emit("answer", {id: 2, answer: ans});
+                }, 1000);
 
             }
         }
@@ -60,7 +64,7 @@
     #dream-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-2.png");
+        background: url("../assets/bg-dream.png");
         background-size: 100% 100%;
     }
 

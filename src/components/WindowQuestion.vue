@@ -1,36 +1,36 @@
 <template>
-    <div id="sun-ques">
-        <div class="title">
-            {{showWord}}
-        </div>
+    <div id="window-ques">
+        <div class="title">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
-                <img src="../assets/sun-rise.png" alt="" :class="{active:active ==='a'}">
-                <img src="../assets/sun-down.png" alt="" :class="{active:active ==='b'}">
+                <img src="../assets/正常窗外@2x.png" alt="" :class="{active:active ==='a'}">
             </div>
         </transition>
         <transition name="fade">
             <div class="choose" v-if="showUnKnow">
                 <div class="choose-content" @click="chooseAnswer('a')">
                     <span class="button" :class="{active:active ==='a'}"></span>
-                    <span class="text">日出</span>
+                    <span class="text">浮云 </span>
                 </div>
                 <div class="choose-content" @click="chooseAnswer('b')">
                     <span class="button" :class="{active:active ==='b'}"></span>
-                    <span class="text">日落</span>
+                    <span class="text">流星</span>
+                </div>
+                <div class="choose-content" @click="chooseAnswer('c')">
+                    <span class="button" :class="{active:active ==='c'}"></span>
+                    <span class="text">鲲鹏</span>
                 </div>
             </div>
         </transition>
-
     </div>
 </template>
 
 <script>
     export default {
-        name: "SunQuestion",
+        name: "WindowQuestion",
         data() {
             return {
-                word: "你更喜欢日出，还是日落？",
+                word: "你望着窗外怔怔出神\n突然天空有不明物体经过\n你觉得它是什么？",
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
@@ -57,7 +57,7 @@
                     clearTimeout(this.chooseAnswerId)
                 }
                 this.chooseAnswerId = setTimeout(() => {
-                    this.$bus.$emit("answer", {id: 1, answer: ans});
+                    this.$bus.$emit("answer", {id: 6, answer: ans});
                 }, 1000);
 
             }
@@ -66,65 +66,54 @@
 </script>
 
 <style scoped>
-    #sun-ques {
+    #window-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-sun.png");
+        background: url("../assets/bg-music.png");
         background-size: 100% 100%;
     }
 
     .title {
         width: calc(100% - 0.56rem);
         height: 1.5rem;
+        line-height: 0.4rem;
         padding: 2.08rem 0 0.2rem 0.56rem;
         font-size: 0.28rem;
-        color: #fff;
-        letter-spacing: 0.03rem;
-        font-weight: 300;
+        letter-spacing: 0.08rem;
+        font-weight: 900;
+        white-space: pre;
+        color: rgba(255,255,255,1);
     }
-
     .img {
         width: 100%;
-        height: 3.42rem;
-        padding: 0.15rem 0;
-        display: flex;
-        justify-content: center;
     }
-
     .img img {
-        width: 2.58rem;
-        opacity: 0.6;
-        margin: 0 0.35rem;
-        transition: opacity .5s;
-        box-shadow: -1px 1px 3px 5px rgba(0, 0, 0, 0.8);
+       width: 100%;
+        height: 5rem;
     }
-
-    .img img.active {
-        opacity: 1;
-    }
-
     .choose {
         width: 100%;
-        height: 1.5rem;
-        line-height: 1.5rem;
-        font-size: 0.36rem;
-        font-weight: 300;
+        height: 1rem;
+        line-height: 1rem;
+        font-size: 0.32rem;
+        font-weight: 100;
         color: #fff;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
     }
 
     .choose .choose-content {
-        width: 2.58rem;
-        margin: 0 0.35rem;
+        width: 100%;
+        margin: 0 0.8rem;
         text-align: center;
         display: flex;
-        justify-content: center;
     }
 
     .choose-content .text {
-        width: 1rem;
+        padding-left: 0.2rem;
         display: block;
+        font-weight: 400;
+        letter-spacing: 0.02rem;
     }
 
     .choose-content .button {
@@ -141,8 +130,9 @@
         background-size: 100% 100%;
     }
 
+
     .fade-enter-active, .fade-leave-active {
-        transition: opacity 2s;
+        transition: opacity 1s;
     }
 
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
