@@ -1,7 +1,7 @@
 <template>
     <div class="floorPage">
         <div id="ele" v-if="ele.show">
-            <img src="../assets/electricity-2.png" :class="{shadow:ele.gif}" alt="">
+            <img src="../assets/electricity.png" :class="{shadow:ele.gif}" alt="">
             <img src="../assets/ele.gif" alt="" v-if="ele.gif">
             <a class="link" href="http://liuyonghua.cn"></a>
         </div>
@@ -10,6 +10,27 @@
             <img src="../assets/oil.gif" alt="" v-if="oil.gif">
             <a class="link" href="http://liuyonghua.cn"></a>
         </div>
+        <div id="oil" v-if="oil.show">
+            <img src="../assets/oil.png" :class="{shadow:oil.gif}" alt="">
+            <img src="../assets/oil.gif" alt="" v-if="oil.gif">
+            <a class="link" href="http://liuyonghua.cn"></a>
+        </div>
+        <div id="oil" v-if="oil.show">
+            <img src="../assets/oil.png" :class="{shadow:oil.gif}" alt="">
+            <img src="../assets/oil.gif" alt="" v-if="oil.gif">
+            <a class="link" href="http://liuyonghua.cn"></a>
+        </div>
+        <div id="oil" v-if="oil.show">
+            <img src="../assets/oil.png" :class="{shadow:oil.gif}" alt="">
+            <img src="../assets/oil.gif" alt="" v-if="oil.gif">
+            <a class="link" href="http://liuyonghua.cn"></a>
+        </div>
+        <div id="oil" v-if="oil.show">
+            <img src="../assets/oil.png" :class="{shadow:oil.gif}" alt="">
+            <img src="../assets/oil.gif" alt="" v-if="oil.gif">
+            <a class="link" href="http://liuyonghua.cn"></a>
+        </div>
+
     </div>
 </template>
 
