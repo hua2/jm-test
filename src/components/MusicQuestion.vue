@@ -49,7 +49,7 @@
                     setTimeout(() => {
                         that.startPointerAnim();
                         that.startMusicAnim();
-                    }, 100);
+                    }, 1000);
                 }
             }, 200);
         },
@@ -129,9 +129,7 @@
     .img {
         width: 100%;
         height: 6.6rem;
-        /*padding: 0.15rem 0;*/
         display: flex;
-        /*justify-content: center;*/
         flex-direction: column;
     }
 
@@ -148,7 +146,7 @@
     .img .player {
         width: 4.98rem;
         height: 4.98rem;
-        margin: 0 1.25rem;
+        margin: 0 auto;
     }
 
     .choose {

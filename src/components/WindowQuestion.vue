@@ -5,6 +5,10 @@
             <div class="img" v-if="showUnKnow">
                 <img src="../assets/window.png" alt="" id="window">
                 <img src="../assets/people.png" alt="" id="people">
+                <!--<img src="../assets/window.png" alt="" id="cloud" @click="chooseAnswer('a')">-->
+                <!--<img src="../assets/meteor.png" alt="" id="meteor" @click="chooseAnswer('b')">-->
+                <!--<img src="../assets/kun.png" alt="" id="kun" @click="chooseAnswer('c')">-->
+
             </div>
         </transition>
         <transition name="fade">
@@ -49,7 +53,7 @@
                     clearInterval(timer);
                     that.showUnKnow = true
                 }
-            }, 200);
+            }, 150);
         },
         methods: {
             chooseAnswer: function (ans) {

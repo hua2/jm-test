@@ -211,11 +211,11 @@
         background: #323232;
     }
     .icon_audio {
-        width: 37px;
-        height: 37px;
+        width: 0.37rem;
+        height: 0.37rem;
         position: absolute;
-        top: 38px;
-        right: 43px;
+        top: 0.38rem;
+        right: 0.43rem;
         z-index: 999;
         background: url("./assets/icon_audio_off.png") no-repeat 0 0 ;
         background-size:100% 100% ;

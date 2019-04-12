@@ -82,7 +82,7 @@
     .choose {
         width: fit-content;
         height: 3rem;
-        margin: 0 auto;
+        margin: 0.6rem auto 0 auto;
         line-height: 1rem;
         font-size: 0.32rem;
         font-weight: 100;
