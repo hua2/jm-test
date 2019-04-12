@@ -3,8 +3,8 @@
         <div class="title">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
-                <img src="../assets/pointer.png" alt="" class="pointer">
-                <img src="../assets/player.png" alt="" class="player">
+                <img id="pointer" src="../assets/pointer.png" alt="" class="pointer">
+                <img id="player" src="../assets/player.png" alt="" class="player">
             </div>
         </transition>
         <transition name="fade">
@@ -31,7 +31,9 @@
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
-                chooseAnswerId: undefined
+                chooseAnswerId: undefined,
+                musicAnimId: undefined,
+                musicRotate: 0,
             }
         },
         created() {
@@ -43,7 +45,11 @@
                 i++;
                 if (that.showWord === that.word) {
                     clearInterval(timer);
-                    that.showUnKnow = true
+                    that.showUnKnow = true;
+                    setTimeout(() => {
+                        that.startPointerAnim();
+                        that.startMusicAnim();
+                    }, 100);
                 }
             }, 200);
         },
@@ -57,7 +63,45 @@
                     this.$bus.$emit("answer", {id: 4, answer: ans});
                 }, 1000);
 
-            }
+            },
+            startPointerAnim: function () {
+                let pointer = document.getElementById("pointer");
+                pointer.style.transform = "rotate(30deg)";
+                pointer.style["-moz-transform"] = "rotate(30deg)";
+                pointer.style["-webkit-transform"] = "rotate(30deg)";
+                pointer.style["-o-transform"] = "rotate(30deg)";
+                pointer.style["-ms-transform"] = "rotate(30deg)";
+            },
+            stopPointerAnim: function () {
+                let pointer = document.getElementById("pointer");
+                pointer.style.transform = "rotate(0deg)";
+                pointer.style["-moz-transform"] = "rotate(0deg)";
+                pointer.style["-webkit-transform"] = "rotate(0deg)";
+                pointer.style["-o-transform"] = "rotate(0deg)";
+                pointer.style["-ms-transform"] = "rotate(0deg)";
+            },
+            startMusicAnim: function () {
+                const that = this;
+                this.musicAnimId = setInterval(function () {
+                    let player = document.getElementById("player");
+                    let rotateStyle = "rotate(" + that.musicRotate + "deg)";
+                    player.style.transform = rotateStyle;
+                    player.style["-moz-transform"] = rotateStyle;
+                    player.style["-webkit-transform"] = rotateStyle;
+                    player.style["-o-transform"] = rotateStyle;
+                    player.style["-ms-transform"] = rotateStyle;
+                    that.musicRotate += 6;
+                    if (that.musicRotate > 360) {
+                        that.musicRotate = 0;
+                    }
+                }, 40);
+            },
+            stopMusicAnim: function () {
+                clearInterval(this.musicAnimId);
+            },
+        },
+        beforeDestroy() {
+            this.stopMusicAnim();
         }
     }
 </script>
@@ -92,9 +136,13 @@
     }
 
     .img .pointer {
-        width: 2.6rem;
+        width: 2.88rem;
         height: 1.3rem;
-        margin: 0 2.8rem;
+        margin: 0 auto;
+        padding-left: 0.6rem;
+        transform-origin: 0.9rem 0.3rem;
+        transition: transform 1s;
+        z-index: 999;
     }
 
     .img .player {
