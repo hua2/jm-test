@@ -4,7 +4,7 @@
         <DreamQuestion v-if="nowId === 2"></DreamQuestion>
         <MovieQuestion v-if="nowId === 3"></MovieQuestion>
         <MusicQuestion v-if="nowId === 4"></MusicQuestion>
-        <BrithQuestion v-if="nowId ===5"></BrithQuestion>
+        <BirthQuestion v-if="nowId ===5"></BirthQuestion>
         <WindowQuestion v-if="nowId ===6"></WindowQuestion>
         <FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>
     </div>
@@ -17,14 +17,14 @@
     import MovieQuestion from "./components/MovieQuestion";
     import MusicQuestion from "./components/MusicQuestion";
     import FloorPage from "./components/FloorPage";
-    import BrithQuestion from "./components/BrithQuestion";
+    import BirthQuestion from "./components/BirthQuestion";
     import WindowQuestion from "./components/WindowQuestion";
 
     export default {
         name: 'app',
         components: {
             WindowQuestion,
-            BrithQuestion,
+            BirthQuestion,
             MusicQuestion,
             MovieQuestion,
             FloorPage,

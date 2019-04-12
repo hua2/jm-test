@@ -3,7 +3,7 @@
         <div class="title">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
-                <img src="../assets/日落.png" alt="" :class="{active:active ==='a'}">
+                <img src="../assets/sunset.png" alt="" :class="{active:active ==='a'}">
             </div>
         </transition>
         <transition name="fade">
@@ -69,7 +69,7 @@
     #birth-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-music.png");
+        background: url("../assets/bg-birth.png");
         background-size: 100% 100%;
     }
 
@@ -95,6 +95,7 @@
         width: 100%;
         height: 1rem;
         line-height: 1rem;
+        margin-top: 0.5rem;
         font-size: 0.32rem;
         font-weight: 100;
         color: #fff;

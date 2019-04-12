@@ -3,7 +3,8 @@
         <div class="title">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
-                <img src="../assets/正常窗外@2x.png" alt="" :class="{active:active ==='a'}">
+                <img src="../assets/window.png" alt="" :class="{active:active ==='a'}" id="window">
+                <img src="../assets/people.png" alt="" id="people">
             </div>
         </transition>
         <transition name="fade">
@@ -69,7 +70,7 @@
     #window-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-music.png");
+        background: url("../assets/bg-window.png");
         background-size: 100% 100%;
     }
 
@@ -86,6 +87,7 @@
     }
     .img {
         width: 100%;
+        height: 6rem;
     }
     .img img {
        width: 100%;
@@ -138,6 +140,16 @@
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
     {
         opacity: 0;
+    }
+    #window{
+        width: 100%;
+        position: absolute;
+        z-index: 100;
+    }
+    #people{
+        width: 100%;
+        position: absolute;
+        z-index: 101;
     }
 
 

@@ -2,6 +2,12 @@
     <div id="music-ques">
         <div class="title">{{showWord}}</div>
         <transition name="fade">
+            <div class="img" v-if="showUnKnow">
+                <img src="../assets/pointer.png" alt="" class="pointer">
+                <img src="../assets/player.png" alt="" class="player">
+            </div>
+        </transition>
+        <transition name="fade">
             <div class="choose" v-if="showUnKnow">
                 <div class="choose-content" @click="chooseAnswer('a')">
                     <span class="button" :class="{active:active ==='a'}"></span>
@@ -66,7 +72,7 @@
 
     .title {
         width: calc(100% - 0.56rem);
-        height: 2.5rem;
+        /*height: 2.5rem;*/
         line-height: 0.4rem;
         padding: 2.08rem 0 0.2rem 0.56rem;
         font-size: 0.28rem;
@@ -74,6 +80,25 @@
         font-weight: 900;
         white-space: pre;
         color: rgba(255,255,255,1);
+    }
+
+    .img {
+        width: 100%;
+        height: 6.6rem;
+        /*padding: 0.15rem 0;*/
+        display: flex;
+        /*justify-content: center;*/
+        flex-direction: column;
+    }
+    .img .pointer {
+        width: 2.6rem;
+        height: 1.3rem;
+        margin: 0 2.8rem;
+    }
+    .img .player {
+        width: 4.98rem;
+        height: 4.98rem;
+        margin: 0 1.25rem;
     }
 
     .choose {
@@ -89,7 +114,7 @@
 
     .choose .choose-content {
         width: 100%;
-        margin: 0 0.8rem;
+        margin: 0 1.8rem;
         text-align: center;
         display: flex;
     }

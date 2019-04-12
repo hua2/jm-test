@@ -79,8 +79,8 @@
         padding: 2.08rem 0 0.2rem 0.56rem;
         font-size: 0.28rem;
         color: #fff;
-        letter-spacing: 0.03rem;
-        font-weight: 300;
+        letter-spacing: 0.08rem;
+        font-weight: 900;
     }
 
     .img {
