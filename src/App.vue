@@ -208,5 +208,6 @@
     #app {
         width: 100%;
         height: 100%;
+        background: #323232;
     }
 </style>
