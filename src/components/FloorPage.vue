@@ -7,7 +7,7 @@
         </div>
         <div id="light" v-if="showPage==='f'">
             <img src="../assets/light.png" :class="{shadow:gif}" alt="">
-            <img src="../assets/ele.gif" alt="" v-if="gif">
+            <img src="../assets/light.gif" alt="" v-if="gif">
             <a class="link" href="http://liuyonghua.cn"></a>
         </div>
         <div id="coal" v-if="showPage==='c'">
