@@ -23,7 +23,7 @@
         <div id="oil" v-if="showPage==='b'">
             <img src="../assets/oil.png" :class="{shadow:gif}" alt="">
             <img src="../assets/ele.gif" alt="" v-if="gif">
-            <a class="link" href="http://liuyonghua.scn"></a>
+            <a class="link" href="http://liuyonghua.cn"></a>
         </div>
         <div id="wind" v-if="showPage==='d'">
             <img src="../assets/wind.png" :class="{shadow:gif}" alt="">

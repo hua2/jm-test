@@ -33,11 +33,7 @@
         },
         data() {
             return {
-<<<<<<< HEAD
-                nowId: 6,
-=======
-                nowId: 4,
->>>>>>> 200e150ec1ac5bd0c6c152998954a604efb6576f
+                nowId: 1,
                 total: {
                     sun: undefined,
                     dream: undefined,
