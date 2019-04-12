@@ -1,24 +1,26 @@
 <template>
     <div id="music-ques">
-        <div class="title">{{showWord}}</div>
-        <transition name="fade">
-            <div class="img" v-if="showUnKnow">
-                <img id="pointer" src="../assets/pointer.png" alt="" class="pointer">
-                <img id="player" src="../assets/player.png" alt="" class="player">
-            </div>
-        </transition>
-        <transition name="fade">
-            <div class="choose" v-if="showUnKnow">
-                <div class="choose-content" @click="chooseAnswer('a')">
-                    <span class="button" :class="{active:active ==='a'}"></span>
-                    <span class="text">心有花木，向阳而生 </span>
+        <div class="content">
+            <div class="title">{{showWord}}</div>
+            <transition name="fade">
+                <div class="img" v-if="showUnKnow">
+                    <img id="pointer" src="../assets/pointer.png" alt="" class="pointer">
+                    <img id="player" src="../assets/player.png" alt="" class="player">
                 </div>
-                <div class="choose-content" @click="chooseAnswer('b')">
-                    <span class="button" :class="{active:active ==='b'}"></span>
-                    <span class="text">凝视深渊，深渊回望</span>
+            </transition>
+            <transition name="fade">
+                <div class="choose" v-if="showUnKnow">
+                    <div class="choose-content" @click="chooseAnswer('a')">
+                        <span class="button" :class="{active:active ==='a'}"></span>
+                        <span class="text">心有花木，向阳而生 </span>
+                    </div>
+                    <div class="choose-content" @click="chooseAnswer('b')">
+                        <span class="button" :class="{active:active ==='b'}"></span>
+                        <span class="text">凝视深渊，深渊回望</span>
+                    </div>
                 </div>
-            </div>
-        </transition>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -112,18 +114,25 @@
         height: 100%;
         background: url("../assets/bg-music.png");
         background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .title {
         width: calc(100% - 0.56rem);
-        /*height: 2.5rem;*/
+        height: 1.5rem;
         line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
+        padding: 0 0 0.2rem 0.56rem;
         font-size: 0.28rem;
         letter-spacing: 0.08rem;
         font-weight: 900;
         white-space: pre;
         color: rgba(255, 255, 255, 1);
+    }
+
+    .content {
+        height: 10.3rem;
     }
 
     .img {

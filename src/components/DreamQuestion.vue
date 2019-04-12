@@ -1,22 +1,25 @@
 <template>
     <div id="dream-ques">
-        <div class="title">{{showWord}}</div>
-        <transition name="fade">
-            <div class="choose" v-if="showUnKnow">
-                <div class="choose-content" @click="chooseAnswer('a')">
-                    <span class="button" :class="{active:active ==='a'}"></span>
-                    <span class="text">最近可能倒大霉了</span>
+        <div class="content">
+            <div class="title">{{showWord}}</div>
+            <transition name="fade">
+                <div class="choose" v-if="showUnKnow">
+                    <div class="choose-content" @click="chooseAnswer('a')">
+                        <span class="button" :class="{active:active ==='a'}"></span>
+                        <span class="text">最近可能倒大霉了</span>
+                    </div>
+                    <div class="choose-content" @click="chooseAnswer('b')">
+                        <span class="button" :class="{active:active ==='b'}"></span>
+                        <span class="text">大概是运气不好，没什么大不了了</span>
+                    </div>
+                    <div class="choose-content" @click="chooseAnswer('c')">
+                        <span class="button" :class="{active:active ==='c'}"></span>
+                        <span class="text">梦是反的，一定预示着好运</span>
+                    </div>
                 </div>
-                <div class="choose-content" @click="chooseAnswer('b')">
-                    <span class="button" :class="{active:active ==='b'}"></span>
-                    <span class="text">大概是运气不好，没什么大不了了</span>
-                </div>
-                <div class="choose-content" @click="chooseAnswer('c')">
-                    <span class="button" :class="{active:active ==='c'}"></span>
-                    <span class="text">梦是反的，一定预示着好运</span>
-                </div>
-            </div>
-        </transition>
+            </transition>
+
+        </div>
     </div>
 </template>
 
@@ -29,7 +32,7 @@
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
-                chooseAnswerId:undefined
+                chooseAnswerId: undefined
             }
         },
         created() {
@@ -48,7 +51,7 @@
         methods: {
             chooseAnswer: function (ans) {
                 this.active = ans;
-                if(this.chooseAnswerId){
+                if (this.chooseAnswerId) {
                     clearTimeout(this.chooseAnswerId)
                 }
                 this.chooseAnswerId = setTimeout(() => {
@@ -66,23 +69,31 @@
         height: 100%;
         background: url("../assets/bg-dream.png");
         background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .content {
+        height: 5.7rem;
     }
 
     .title {
         width: calc(100% - 0.56rem);
         height: 2.5rem;
         line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
+        padding: 0 0 0.2rem 0.56rem;
         font-size: 0.28rem;
         letter-spacing: 0.08rem;
         font-weight: 900;
         white-space: pre;
-        color: rgba(255,255,255,1);
+        color: rgba(255, 255, 255, 1);
     }
+
     .choose {
         width: fit-content;
         height: 3rem;
-        margin: 0.6rem auto 0 auto;
+        margin: 0 auto;
         line-height: 1rem;
         font-size: 0.32rem;
         font-weight: 100;

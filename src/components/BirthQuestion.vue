@@ -1,27 +1,29 @@
 <template>
     <div id="birth-ques">
-        <div class="title">{{showWord}}</div>
-        <transition name="fade">
-            <div class="img" v-if="showUnKnow">
-                <img src="../assets/sunset.png" alt="" :class="{active:active ==='a'}">
-            </div>
-        </transition>
-        <transition name="fade">
-            <div class="choose" v-if="showUnKnow">
-                <div class="choose-content" @click="chooseAnswer('a')">
-                    <span class="button" :class="{active:active ==='a'}"></span>
-                    <span class="text">自己一个人过，保持低调 </span>
+        <div class="content">
+            <div class="title">{{showWord}}</div>
+            <transition name="fade">
+                <div class="img" v-if="showUnKnow">
+                    <img src="../assets/sunset.png" alt="" :class="{active:active ==='a'}">
                 </div>
-                <div class="choose-content" @click="chooseAnswer('b')">
-                    <span class="button" :class="{active:active ==='b'}"></span>
-                    <span class="text">静静等待，看哪个朋友记得</span>
+            </transition>
+            <transition name="fade">
+                <div class="choose" v-if="showUnKnow">
+                    <div class="choose-content" @click="chooseAnswer('a')">
+                        <span class="button" :class="{active:active ==='a'}"></span>
+                        <span class="text">自己一个人过，保持低调 </span>
+                    </div>
+                    <div class="choose-content" @click="chooseAnswer('b')">
+                        <span class="button" :class="{active:active ==='b'}"></span>
+                        <span class="text">静静等待，看哪个朋友记得</span>
+                    </div>
+                    <div class="choose-content" @click="chooseAnswer('c')">
+                        <span class="button" :class="{active:active ==='c'}"></span>
+                        <span class="text">召集朋友，办个热闹的派对</span>
+                    </div>
                 </div>
-                <div class="choose-content" @click="chooseAnswer('c')">
-                    <span class="button" :class="{active:active ==='c'}"></span>
-                    <span class="text">召集朋友，办个热闹的派对</span>
-                </div>
-            </div>
-        </transition>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -34,7 +36,7 @@
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
-                chooseAnswerId:undefined
+                chooseAnswerId: undefined
             }
         },
         created() {
@@ -53,7 +55,7 @@
         methods: {
             chooseAnswer: function (ans) {
                 this.active = ans;
-                if(this.chooseAnswerId){
+                if (this.chooseAnswerId) {
                     clearTimeout(this.chooseAnswerId)
                 }
                 this.chooseAnswerId = setTimeout(() => {
@@ -71,26 +73,34 @@
         height: 100%;
         background: url("../assets/bg-birth.png");
         background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-
+    .content {
+        height: 10.2rem;
+    }
     .title {
         width: calc(100% - 0.56rem);
         height: 1.5rem;
         line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
+        padding: 0 0 0.2rem 0.56rem;
         font-size: 0.28rem;
         letter-spacing: 0.08rem;
         font-weight: 900;
         white-space: pre;
-        color: rgba(255,255,255,1);
+        color: rgba(255, 255, 255, 1);
     }
+
     .img {
         width: 100%;
     }
+
     .img img {
-       width: 100%;
+        width: 100%;
         height: 5rem;
     }
+
     .choose {
         width: fit-content;
         height: 3rem;

@@ -1,55 +1,57 @@
 <template>
     <div id="dream-ques">
-        <div class="title">{{showWord}}</div>
-        <transition name="fade">
-            <div id="seats" v-if="showUnKnow">
-                <div class="choose">
-                    <span class="empty"></span>
-                    <span class="option" @click="chooseAnswer('a')"></span>
-                    <span class="empty"></span>
-                    <span class="select"></span>
-                    <span class="empty"></span>
+        <div class="content">
+            <div class="title">{{showWord}}</div>
+            <transition name="fade">
+                <div id="seats" v-if="showUnKnow">
+                    <div class="choose">
+                        <span class="empty"></span>
+                        <span class="option" @click="chooseAnswer('a')"></span>
+                        <span class="empty"></span>
+                        <span class="select"></span>
+                        <span class="empty"></span>
+                    </div>
+                    <div class="choose">
+                        <span class="empty"></span>
+                        <span class="select"></span>
+                        <span class="select"></span>
+                        <span class="select"></span>
+                        <span class="select"></span>
+                    </div>
+                    <div class="choose">
+                        <span class="select"></span>
+                        <span class="select"></span>
+                        <span class="option" @click="chooseAnswer('c')"></span>
+                        <span class="select"></span>
+                        <span class="empty"></span>
+                    </div>
+                    <div class="choose">
+                        <span class="empty"></span>
+                        <span class="select"></span>
+                        <span class="select"></span>
+                        <span class="empty"></span>
+                        <span class="empty"></span>
+                    </div>
+                    <div class="choose">
+                        <span class="empty"></span>
+                        <span class="select"></span>
+                        <span class="select"></span>
+                        <span class="empty"></span>
+                        <span class="option" @click="chooseAnswer('b')"></span>
+                    </div>
+                    <div class="choose example">
+                        <span class="option"></span>
+                        <span class="select"></span>
+                        <span class="empty"></span>
+                    </div>
+                    <div class="choose text">
+                        <span>可选</span>
+                        <span>已选</span>
+                        <span>空座</span>
+                    </div>
                 </div>
-                <div class="choose">
-                    <span class="empty"></span>
-                    <span class="select"></span>
-                    <span class="select"></span>
-                    <span class="select"></span>
-                    <span class="select"></span>
-                </div>
-                <div class="choose">
-                    <span class="select"></span>
-                    <span class="select"></span>
-                    <span class="option" @click="chooseAnswer('c')"></span>
-                    <span class="select"></span>
-                    <span class="empty"></span>
-                </div>
-                <div class="choose">
-                    <span class="empty"></span>
-                    <span class="select"></span>
-                    <span class="select"></span>
-                    <span class="empty"></span>
-                    <span class="empty"></span>
-                </div>
-                <div class="choose">
-                    <span class="empty"></span>
-                    <span class="select"></span>
-                    <span class="select"></span>
-                    <span class="empty"></span>
-                    <span class="option" @click="chooseAnswer('b')"></span>
-                </div>
-                <div class="choose example">
-                    <span class="option"></span>
-                    <span class="select"></span>
-                    <span class="empty"></span>
-                </div>
-                <div class="choose text">
-                    <span>可选</span>
-                    <span>已选</span>
-                    <span>空座</span>
-                </div>
-            </div>
-        </transition>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -62,7 +64,7 @@
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
-                chooseAnswerId:undefined
+                chooseAnswerId: undefined
 
             }
         },
@@ -82,7 +84,7 @@
         methods: {
             chooseAnswer: function (ans) {
                 this.active = ans;
-                if(this.chooseAnswerId){
+                if (this.chooseAnswerId) {
                     clearTimeout(this.chooseAnswerId)
                 }
                 this.chooseAnswerId = setTimeout(() => {
@@ -100,13 +102,18 @@
         height: 100%;
         background: url("../assets/bg-movie.png");
         background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-
+    .content {
+        height: 9.58rem;
+    }
     .title {
         width: calc(100% - 0.56rem);
         height: 2.5rem;
         line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
+        padding: 0 0 0.2rem 0.56rem;
         font-size: 0.28rem;
         letter-spacing: 0.08rem;
         font-weight: 900;
@@ -119,18 +126,23 @@
         display: flex;
         justify-content: center;
     }
+
     .choose span {
         margin: 0.2rem 0.2rem;
     }
-    .choose.example span{
+
+    .choose.example span {
         margin: 0.2rem 0.4rem;
     }
+
     .choose.text span {
         width: 0.72rem;
         text-align: center;
         display: block;
         font-weight: 400;
         margin: 0 0.4rem;
+        height: 0.4rem;
+        line-height: 0.4rem;
     }
 
     .choose.text span:nth-child(1) {
@@ -142,7 +154,7 @@
     }
 
     .choose.text span:nth-child(3) {
-        color:rgba(140,140,140,1);
+        color: rgba(140, 140, 140, 1);
     }
 
     .choose .empty {
