@@ -33,7 +33,7 @@
         },
         data() {
             return {
-                nowId: 1,
+                nowId: 6,
                 total: {
                     sun: undefined,
                     dream: undefined,
@@ -209,5 +209,25 @@
         width: 100%;
         height: 100%;
         background: #323232;
+    }
+    .icon_audio {
+        width: 37px;
+        height: 37px;
+        position: absolute;
+        top: 38px;
+        right: 43px;
+        z-index: 999;
+        background: url("./assets/icon_audio_off.png") no-repeat 0 0 ;
+        background-size:100% 100% ;
+    }
+    .sound_icon_on {
+        background: url("./assets/icon_audio.png") 0 0 no-repeat;
+        animation: rotate360 2.4s linear infinite;
+        -webkit-animation: rotate360 2.4s linear infinite;
+        background-size:100% 100% ;
+    }
+    .sound_icon_off {
+        background: url("./assets/icon_audio_off.png") no-repeat 0 0 !important;
+        background-size:100% 100% !important;
     }
 </style>

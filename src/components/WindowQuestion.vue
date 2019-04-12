@@ -3,7 +3,7 @@
         <div class="title">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
-                <img src="../assets/window.png" alt="" :class="{active:active ==='a'}" id="window">
+                <img src="../assets/window.png" alt="" id="window">
                 <img src="../assets/people.png" alt="" id="people">
             </div>
         </transition>
@@ -59,7 +59,7 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 6, answer: ans});
-                }, 1000);
+                }, 2000)
 
             }
         }
