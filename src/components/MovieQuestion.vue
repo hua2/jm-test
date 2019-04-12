@@ -1,57 +1,55 @@
 <template>
     <div id="dream-ques">
-        <div class="content">
-            <div class="title">{{showWord}}</div>
-            <transition name="fade">
-                <div id="seats" v-if="showUnKnow">
-                    <div class="choose">
-                        <span class="empty"></span>
-                        <span class="option" @click="chooseAnswer('a')"></span>
-                        <span class="empty"></span>
-                        <span class="select"></span>
-                        <span class="empty"></span>
-                    </div>
-                    <div class="choose">
-                        <span class="empty"></span>
-                        <span class="select"></span>
-                        <span class="select"></span>
-                        <span class="select"></span>
-                        <span class="select"></span>
-                    </div>
-                    <div class="choose">
-                        <span class="select"></span>
-                        <span class="select"></span>
-                        <span class="option" @click="chooseAnswer('c')"></span>
-                        <span class="select"></span>
-                        <span class="empty"></span>
-                    </div>
-                    <div class="choose">
-                        <span class="empty"></span>
-                        <span class="select"></span>
-                        <span class="select"></span>
-                        <span class="empty"></span>
-                        <span class="empty"></span>
-                    </div>
-                    <div class="choose">
-                        <span class="empty"></span>
-                        <span class="select"></span>
-                        <span class="select"></span>
-                        <span class="empty"></span>
-                        <span class="option" @click="chooseAnswer('b')"></span>
-                    </div>
-                    <div class="choose example">
-                        <span class="option"></span>
-                        <span class="select"></span>
-                        <span class="empty"></span>
-                    </div>
-                    <div class="choose text">
-                        <span>可选</span>
-                        <span>已选</span>
-                        <span>空座</span>
-                    </div>
+        <div class="title">{{showWord}}</div>
+        <transition name="fade">
+            <div id="seats" v-if="showUnKnow">
+                <div class="choose">
+                    <span class="empty"></span>
+                    <span class="option" @click="chooseAnswer('a')"></span>
+                    <span class="empty"></span>
+                    <span class="select"></span>
+                    <span class="empty"></span>
                 </div>
-            </transition>
-        </div>
+                <div class="choose">
+                    <span class="empty"></span>
+                    <span class="select"></span>
+                    <span class="select"></span>
+                    <span class="select"></span>
+                    <span class="select"></span>
+                </div>
+                <div class="choose">
+                    <span class="select"></span>
+                    <span class="select"></span>
+                    <span class="option" @click="chooseAnswer('c')"></span>
+                    <span class="select"></span>
+                    <span class="empty"></span>
+                </div>
+                <div class="choose">
+                    <span class="empty"></span>
+                    <span class="select"></span>
+                    <span class="select"></span>
+                    <span class="empty"></span>
+                    <span class="empty"></span>
+                </div>
+                <div class="choose">
+                    <span class="empty"></span>
+                    <span class="select"></span>
+                    <span class="select"></span>
+                    <span class="empty"></span>
+                    <span class="option" @click="chooseAnswer('b')"></span>
+                </div>
+                <div class="choose example">
+                    <span class="option"></span>
+                    <span class="select"></span>
+                    <span class="empty"></span>
+                </div>
+                <div class="choose text">
+                    <span>可选</span>
+                    <span>已选</span>
+                    <span>空座</span>
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -102,18 +100,13 @@
         height: 100%;
         background: url("../assets/bg-movie.png");
         background-size: 100% 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
-    .content {
-        height: 9.58rem;
-    }
+
     .title {
         width: calc(100% - 0.56rem);
         height: 2.5rem;
         line-height: 0.4rem;
-        padding: 0 0 0.2rem 0.56rem;
+        padding: 2.08rem 0 0.2rem 0.56rem;
         font-size: 0.28rem;
         letter-spacing: 0.08rem;
         font-weight: 900;

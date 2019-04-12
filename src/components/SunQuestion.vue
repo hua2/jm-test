@@ -1,28 +1,26 @@
 <template>
     <div id="sun-ques">
-        <div class="content">
-            <div class="title">
-                {{showWord}}
-            </div>
-            <transition name="fade">
-                <div class="img" v-if="showUnKnow">
-                    <img src="../assets/sun-rise.png" alt="" :class="{active:active ==='a'}">
-                    <img src="../assets/sun-down.png" alt="" :class="{active:active ==='b'}">
-                </div>
-            </transition>
-            <transition name="fade">
-                <div class="choose" v-if="showUnKnow">
-                    <div class="choose-content" @click="chooseAnswer('a')">
-                        <span class="button" :class="{active:active ==='a'}"></span>
-                        <span class="text">日出</span>
-                    </div>
-                    <div class="choose-content" @click="chooseAnswer('b')">
-                        <span class="button" :class="{active:active ==='b'}"></span>
-                        <span class="text">日落</span>
-                    </div>
-                </div>
-            </transition>
+        <div class="title">
+            {{showWord}}
         </div>
+        <transition name="fade">
+            <div class="img" v-if="showUnKnow">
+                <img src="../assets/sun-rise.png" alt="" :class="{active:active ==='a'}">
+                <img src="../assets/sun-down.png" alt="" :class="{active:active ==='b'}">
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="choose" v-if="showUnKnow">
+                <div class="choose-content" @click="chooseAnswer('a')">
+                    <span class="button" :class="{active:active ==='a'}"></span>
+                    <span class="text">日出</span>
+                </div>
+                <div class="choose-content" @click="chooseAnswer('b')">
+                    <span class="button" :class="{active:active ==='b'}"></span>
+                    <span class="text">日落</span>
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -72,19 +70,11 @@
         height: 100%;
         background: url("../assets/bg-sun.png");
         background-size: 100% 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
-
-    .content {
-        height: 6.92rem;
-    }
-
     .title {
         width: calc(100% - 0.56rem);
         height: 1.5rem;
-        padding: 0 0 0.2rem 0.56rem;
+        padding: 2.08rem 0 0.2rem 0.56rem;
         font-size: 0.28rem;
         color: #fff;
         letter-spacing: 0.08rem;

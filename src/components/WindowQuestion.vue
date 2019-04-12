@@ -1,41 +1,39 @@
 <template>
     <div id="window-ques">
-        <div class="content">
-            <div class="title">{{showWord}}</div>
-            <transition name="fade">
-                <div class="img" v-if="showUnKnow">
-                    <transition name="fade">
-                        <img src="../assets/window.png" alt="" id="window" v-if="!active">
-                    </transition>
-                    <transition name="fade">
-                        <img src="../assets/cloud.png" alt="" id="cloud" v-if="active ==='a'">
-                    </transition>
-                    <transition name="fade">
-                        <img src="../assets/meteor.png" alt="" id="meteor" v-if="active ==='b'">
-                    </transition>
-                    <transition name="fade">
-                        <img src="../assets/kun.png" alt="" id="kun" v-if="active ==='c'">
-                    </transition>
-                    <img src="../assets/people.png" alt="" id="people">
+        <div class="title">{{showWord}}</div>
+        <transition name="fade">
+            <div class="img" v-if="showUnKnow">
+                <transition name="fade">
+                    <img src="../assets/window.png" alt="" id="window" v-if="!active">
+                </transition>
+                <transition name="fade">
+                    <img src="../assets/cloud.png" alt="" id="cloud" v-if="active ==='a'">
+                </transition>
+                <transition name="fade">
+                    <img src="../assets/meteor.png" alt="" id="meteor" v-if="active ==='b'">
+                </transition>
+                <transition name="fade">
+                    <img src="../assets/kun.png" alt="" id="kun" v-if="active ==='c'">
+                </transition>
+                <img src="../assets/people.png" alt="" id="people">
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="choose" v-if="showUnKnow">
+                <div class="choose-content" @click="chooseAnswer('a')">
+                    <span class="button" :class="{active:active ==='a'}"></span>
+                    <span class="text">浮云 </span>
                 </div>
-            </transition>
-            <transition name="fade">
-                <div class="choose" v-if="showUnKnow">
-                    <div class="choose-content" @click="chooseAnswer('a')">
-                        <span class="button" :class="{active:active ==='a'}"></span>
-                        <span class="text">浮云 </span>
-                    </div>
-                    <div class="choose-content" @click="chooseAnswer('b')">
-                        <span class="button" :class="{active:active ==='b'}"></span>
-                        <span class="text">流星</span>
-                    </div>
-                    <div class="choose-content" @click="chooseAnswer('c')">
-                        <span class="button" :class="{active:active ==='c'}"></span>
-                        <span class="text">鲲鹏</span>
-                    </div>
+                <div class="choose-content" @click="chooseAnswer('b')">
+                    <span class="button" :class="{active:active ==='b'}"></span>
+                    <span class="text">流星</span>
                 </div>
-            </transition>
-        </div>
+                <div class="choose-content" @click="chooseAnswer('c')">
+                    <span class="button" :class="{active:active ==='c'}"></span>
+                    <span class="text">鲲鹏</span>
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -85,20 +83,12 @@
         height: 100%;
         background: url("../assets/bg-window.png");
         background-size: 100% 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
-
-    .content {
-        height: 9.7rem;
-    }
-
     .title {
         width: calc(100% - 0.56rem);
         height: 1.5rem;
         line-height: 0.4rem;
-        padding: 0 0 0.2rem 0.56rem;
+        padding: 2.08rem 0 0.2rem 0.56rem;
         font-size: 0.28rem;
         letter-spacing: 0.08rem;
         font-weight: 900;
