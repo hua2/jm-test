@@ -31,7 +31,7 @@
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
-                chooseAnswerId:undefined
+                chooseAnswerId: undefined
             }
         },
         created() {
@@ -50,7 +50,7 @@
         methods: {
             chooseAnswer: function (ans) {
                 this.active = ans;
-                if(this.chooseAnswerId){
+                if (this.chooseAnswerId) {
                     clearTimeout(this.chooseAnswerId)
                 }
                 this.chooseAnswerId = setTimeout(() => {
@@ -79,7 +79,7 @@
         letter-spacing: 0.08rem;
         font-weight: 900;
         white-space: pre;
-        color: rgba(255,255,255,1);
+        color: rgba(255, 255, 255, 1);
     }
 
     .img {
@@ -90,11 +90,13 @@
         /*justify-content: center;*/
         flex-direction: column;
     }
+
     .img .pointer {
         width: 2.6rem;
         height: 1.3rem;
         margin: 0 2.8rem;
     }
+
     .img .player {
         width: 4.98rem;
         height: 4.98rem;
@@ -102,8 +104,9 @@
     }
 
     .choose {
-        width: 100%;
-        height: 1rem;
+        width: fit-content;
+        height: 2rem;
+        margin: 0 auto;
         line-height: 1rem;
         font-size: 0.32rem;
         font-weight: 100;
@@ -114,7 +117,6 @@
 
     .choose .choose-content {
         width: 100%;
-        margin: 0 1.8rem;
         text-align: center;
         display: flex;
     }

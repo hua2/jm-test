@@ -92,10 +92,10 @@
         height: 5rem;
     }
     .choose {
-        width: 100%;
-        height: 1rem;
+        width: fit-content;
+        height: 3rem;
         line-height: 1rem;
-        margin-top: 0.5rem;
+        margin: 0.5rem auto 0 auto;
         font-size: 0.32rem;
         font-weight: 100;
         color: #fff;
@@ -105,7 +105,6 @@
 
     .choose .choose-content {
         width: 100%;
-        margin: 0 0.8rem;
         text-align: center;
         display: flex;
     }
