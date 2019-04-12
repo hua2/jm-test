@@ -21,7 +21,6 @@
                 </div>
             </div>
         </transition>
-        <div class="icon_audio" id="btn_audio"></div>
     </div>
 </template>
 

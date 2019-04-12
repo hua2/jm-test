@@ -7,6 +7,8 @@
         <BirthQuestion v-if="nowId ===5"></BirthQuestion>
         <WindowQuestion v-if="nowId ===6"></WindowQuestion>
         <FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>
+        <div class="icon_audio" :class="{sound_icon_on:musicStarted}" id="btn_audio"
+             @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
     </div>
 </template>
 
@@ -40,12 +42,17 @@
                     movie: undefined,
                     music: undefined,
                     birth: undefined,
-                    window: undefined
+                    window: undefined,
+                    musicAnimId: undefined,
                 },
+                audio: new Audio(),
+                musicStarted: true,
+                musicRotate: 0,
                 showPage: "a"
             }
         },
         created() {
+            this.startMusicAnim();
             this.$bus.$on("answer", (res) => {
                 if (res.id === 1 && res.answer === 'a') {
                     this.nowId = 3;
@@ -187,7 +194,50 @@
                 console.log(res);
                 this.showPage = res;
                 this.nowId = 7;
-            }
+            },
+            startMusic() {
+                // 播放音乐
+                this.audio.src = "http://sf.sycdn.kuwo.cn/resource/n1/2/38/1387182506.mp3";
+                this.audio.play().then(() => {
+                    console.log("playing……")
+                }).catch((e) => {
+                    console.error(e);
+                });
+            },
+            stopMusic() {
+                // 停止音乐
+                this.audio.pause();
+                this.audio = new Audio();
+            },
+            startMusicAnim: function () {
+                // 播放音乐
+                this.startMusic();
+                this.musicStarted = true;
+                const that = this;
+                //开始滚动动画
+                this.musicAnimId = setInterval(function () {
+                    let audio = document.getElementById("btn_audio");
+                    let rotateStyle = "rotate(" + that.musicRotate + "deg)";
+                    audio.style.transform = rotateStyle;
+                    audio.style["-moz-transform"] = rotateStyle;
+                    audio.style["-webkit-transform"] = rotateStyle;
+                    audio.style["-o-transform"] = rotateStyle;
+                    audio.style["-ms-transform"] = rotateStyle;
+                    that.musicRotate += 6;
+                    if (that.musicRotate > 360) {
+                        that.musicRotate = 0;
+                    }
+                }, 40);
+            },
+            stopMusicAnim: function () {
+                //停止音乐
+                this.stopMusic();
+                this.musicStarted = false;
+                clearInterval(this.musicAnimId);
+            },
+        },
+        beforeDestroy() {
+            this.stopMusicAnim();
         }
 
     }
@@ -210,6 +260,7 @@
         height: 100%;
         background: #323232;
     }
+
     .icon_audio {
         width: 0.37rem;
         height: 0.37rem;
@@ -217,17 +268,12 @@
         top: 0.38rem;
         right: 0.43rem;
         z-index: 999;
-        background: url("./assets/icon_audio_off.png") no-repeat 0 0 ;
-        background-size:100% 100% ;
+        background: url("./assets/icon_audio_off.png") no-repeat 0 0;
+        background-size: 100% 100%;
     }
+
     .sound_icon_on {
         background: url("./assets/icon_audio.png") 0 0 no-repeat;
-        animation: rotate360 2.4s linear infinite;
-        -webkit-animation: rotate360 2.4s linear infinite;
-        background-size:100% 100% ;
-    }
-    .sound_icon_off {
-        background: url("./assets/icon_audio_off.png") no-repeat 0 0 !important;
-        background-size:100% 100% !important;
+        background-size: 100% 100%;
     }
 </style>

@@ -3,12 +3,19 @@
         <div class="title">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
-                <img src="../assets/window.png" alt="" id="window">
+                <transition name="fade">
+                    <img src="../assets/window.png" alt="" id="window" v-if="!active">
+                </transition>
+                <transition name="fade">
+                    <img src="../assets/cloud.png" alt="" id="cloud" v-if="active ==='a'">
+                </transition>
+                <transition name="fade">
+                    <img src="../assets/meteor.png" alt="" id="meteor" v-if="active ==='b'">
+                </transition>
+                <transition name="fade">
+                    <img src="../assets/kun.png" alt="" id="kun" v-if="active ==='c'">
+                </transition>
                 <img src="../assets/people.png" alt="" id="people">
-                <!--<img src="../assets/window.png" alt="" id="cloud" @click="chooseAnswer('a')">-->
-                <!--<img src="../assets/meteor.png" alt="" id="meteor" @click="chooseAnswer('b')">-->
-                <!--<img src="../assets/kun.png" alt="" id="kun" @click="chooseAnswer('c')">-->
-
             </div>
         </transition>
         <transition name="fade">
@@ -39,7 +46,7 @@
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
-                chooseAnswerId:undefined
+                chooseAnswerId: undefined
             }
         },
         created() {
@@ -58,12 +65,12 @@
         methods: {
             chooseAnswer: function (ans) {
                 this.active = ans;
-                if(this.chooseAnswerId){
+                if (this.chooseAnswerId) {
                     clearTimeout(this.chooseAnswerId)
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 6, answer: ans});
-                }, 2000)
+                }, 20000)
 
             }
         }
@@ -87,16 +94,19 @@
         letter-spacing: 0.08rem;
         font-weight: 900;
         white-space: pre;
-        color: rgba(255,255,255,1);
+        color: rgba(255, 255, 255, 1);
     }
+
     .img {
         width: 100%;
         height: 6rem;
     }
+
     .img img {
-       width: 100%;
+        width: 100%;
         height: 5rem;
     }
+
     .choose {
         width: fit-content;
         height: 3rem;
@@ -145,12 +155,14 @@
     {
         opacity: 0;
     }
-    #window{
+
+    #window, #cloud, #meteor, #kun {
         width: 100%;
         position: absolute;
         z-index: 100;
     }
-    #people{
+
+    #people {
         width: 100%;
         position: absolute;
         z-index: 101;
