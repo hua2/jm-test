@@ -52,7 +52,6 @@
             }
         },
         created() {
-            this.startMusicAnim();
             this.$bus.$on("answer", (res) => {
                 if (res.id === 1 && res.answer === 'a') {
                     this.nowId = 3;
@@ -87,7 +86,9 @@
                     this.countAnswer();
                 }
             });
-
+        },
+        mounted(){
+            this.startMusicAnim();
         },
         methods: {
             countAnswer: function () {
@@ -198,6 +199,7 @@
             startMusic() {
                 // 播放音乐
                 this.audio.src = "http://sf.sycdn.kuwo.cn/resource/n1/2/38/1387182506.mp3";
+                this.audio.load();
                 this.audio.play().then(() => {
                     console.log("playing……")
                 }).catch((e) => {
