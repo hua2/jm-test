@@ -1,6 +1,6 @@
 <template>
     <div id="dream-ques">
-        <div class="title">{{showWord}}</div>
+        <div class="title pre">{{showWord}}</div>
         <transition name="fade">
             <div class="choose" v-if="showUnKnow">
                 <div class="choose-content" @click="chooseAnswer('a')">
@@ -64,69 +64,27 @@
     #dream-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-dream.png");
-        background-size: 100% 100%;
     }
 
     .title {
-        width: calc(100% - 0.56rem);
-        height: 2.5rem;
-        line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
-        font-size: 0.28rem;
-        letter-spacing: 0.08rem;
-        font-weight: 900;
-        white-space: pre;
-        color: rgba(255, 255, 255, 1);
+        height: 1.07rem;
     }
 
     .choose {
-        width: fit-content;
-        height: 3rem;
-        margin: 0 auto;
-        line-height: 1rem;
-        font-size: 0.32rem;
-        font-weight: 100;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
+        padding-top: 0.73rem;
     }
 
     .choose .choose-content {
-        width: 100%;
-        text-align: center;
-        display: flex;
+        width: fit-content;
+        height: 0.22rem;
+        margin: 0;
+        padding: 0.13rem 0 0.13rem 0.58rem;
     }
 
     .choose-content .text {
-        padding-left: 0.2rem;
-        display: block;
-        font-weight: 400;
-        letter-spacing: 0.02rem;
+        width: fit-content;
+        height: 0.22rem;
+        font-size: 0.16rem;
+        line-height: 0.22rem;;
     }
-
-    .choose-content .button {
-        width: 0.26rem;
-        height: 0.28rem;
-        display: block;
-        margin: auto 0;
-        background: url("../assets/unselected.png");
-        background-size: 100% 100%;
-    }
-
-    .choose-content .button.active {
-        background: url("../assets/selected.png");
-        background-size: 100% 100%;
-    }
-
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity 1s;
-    }
-
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-    {
-        opacity: 0;
-    }
-
-
 </style>

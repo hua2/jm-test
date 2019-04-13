@@ -1,6 +1,6 @@
 <template>
     <div id="music-ques">
-        <div class="title">{{showWord}}</div>
+        <div class="title pre">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
                 <img id="pointer" src="../assets/pointer.png" alt="" class="pointer">
@@ -110,93 +110,55 @@
     #music-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-music.png");
-        background-size: 100% 100%;
     }
-
-    .title {
-        width: calc(100% - 0.56rem);
-        height: 1.5rem;
-        line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
-        font-size: 0.28rem;
-        letter-spacing: 0.08rem;
-        font-weight: 900;
-        white-space: pre;
-        color: rgba(255, 255, 255, 1);
+    .title{
+        height: 0.6rem;
     }
 
     .img {
         width: 100%;
-        height: 6.6rem;
+        height: 3.3rem;
         display: flex;
         flex-direction: column;
+        padding-top: 0;
+    }
+    .img img {
+        opacity:1;
+        box-shadow: unset;
     }
 
     .img .pointer {
-        width: 2.88rem;
-        height: 1.3rem;
+        width: 1.44rem;
+        height: 0.65rem;
         margin: 0 auto;
-        padding-left: 0.6rem;
-        transform-origin: 0.9rem 0.3rem;
+        padding-left: 0.3rem;
+        transform-origin: 0.42rem 0.12rem;
         transition: transform 1s;
         z-index: 999;
     }
 
     .img .player {
-        width: 4.98rem;
-        height: 4.98rem;
+        width: 2.49rem;
+        height: 2.49rem;
         margin: 0 auto;
     }
-
     .choose {
-        width: fit-content;
-        height: 2rem;
-        margin: 0 auto;
-        line-height: 1rem;
-        font-size: 0.32rem;
-        font-weight: 100;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
+        padding-top: 0;
+        padding-bottom: 0.85rem;
     }
 
     .choose .choose-content {
-        width: 100%;
-        text-align: center;
-        display: flex;
+        width: fit-content;
+        height: 0.22rem;
+        margin: 0 auto;
+        padding: 0.13rem 0;
     }
 
     .choose-content .text {
-        padding-left: 0.2rem;
-        display: block;
-        font-weight: 400;
-        letter-spacing: 0.02rem;
+        width: fit-content;
+        height: 0.22rem;
+        font-size: 0.16rem;
+        line-height: 0.22rem;;
     }
-
-    .choose-content .button {
-        width: 0.26rem;
-        height: 0.28rem;
-        display: block;
-        margin: auto 0;
-        background: url("../assets/unselected.png");
-        background-size: 100% 100%;
-    }
-
-    .choose-content .button.active {
-        background: url("../assets/selected.png");
-        background-size: 100% 100%;
-    }
-
-
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity 1s;
-    }
-
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-    {
-        opacity: 0;
-    }
-
 
 </style>

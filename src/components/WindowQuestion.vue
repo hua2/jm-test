@@ -1,6 +1,6 @@
 <template>
     <div id="window-ques">
-        <div class="title">{{showWord}}</div>
+        <div class="title pre">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
                 <transition name="fade">
@@ -20,13 +20,15 @@
         </transition>
         <transition name="fade">
             <div class="choose" v-if="showUnKnow">
-                <div class="choose-content" @click="chooseAnswer('a')">
-                    <span class="button" :class="{active:active ==='a'}"></span>
-                    <span class="text">浮云 </span>
-                </div>
-                <div class="choose-content" @click="chooseAnswer('b')">
-                    <span class="button" :class="{active:active ==='b'}"></span>
-                    <span class="text">流星</span>
+                <div class="choose-line">
+                    <div class="choose-content" @click="chooseAnswer('a')">
+                        <span class="button" :class="{active:active ==='a'}"></span>
+                        <span class="text">浮云 </span>
+                    </div>
+                    <div class="choose-content" @click="chooseAnswer('b')">
+                        <span class="button" :class="{active:active ==='b'}"></span>
+                        <span class="text">流星</span>
+                    </div>
                 </div>
                 <div class="choose-content" @click="chooseAnswer('c')">
                     <span class="button" :class="{active:active ==='c'}"></span>
@@ -81,91 +83,53 @@
     #window-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-window.png");
-        background-size: 100% 100%;
     }
+
     .title {
-        width: calc(100% - 0.56rem);
-        height: 1.5rem;
-        line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
-        font-size: 0.28rem;
-        letter-spacing: 0.08rem;
-        font-weight: 900;
-        white-space: pre;
-        color: rgba(255, 255, 255, 1);
+        height: 0.6rem;
     }
 
     .img {
         width: 100%;
-        height: 5rem;
+        height: 2.5rem;
+        padding-top: 0.2rem;
     }
-
     .img img {
+        opacity:1;
+        box-shadow: unset;
         width: 100%;
-        height: 5rem;
-    }
-
-    .choose {
-        width: fit-content;
-        height: 3rem;
-        margin: 0 auto;
-        line-height: 1rem;
-        font-size: 0.32rem;
-        font-weight: 100;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .choose .choose-content {
-        width: 100%;
-        text-align: center;
-        display: flex;
-    }
-
-    .choose-content .text {
-        padding-left: 0.2rem;
-        display: block;
-        font-weight: 400;
-        letter-spacing: 0.02rem;
-    }
-
-    .choose-content .button {
-        width: 0.26rem;
-        height: 0.28rem;
-        display: block;
-        margin: auto 0;
-        background: url("../assets/unselected.png");
-        background-size: 100% 100%;
-    }
-
-    .choose-content .button.active {
-        background: url("../assets/selected.png");
-        background-size: 100% 100%;
-    }
-
-
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity 1s;
-    }
-
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-    {
-        opacity: 0;
-    }
-
-    #window, #cloud, #meteor, #kun {
-        width: 100%;
-        position: absolute;
-        z-index: 100;
-    }
-
-    #people {
-        width: 100%;
-        position: absolute;
+        margin: 0;
+        height: 100%;
         z-index: 101;
     }
 
+    .choose {
+        padding: 0.58rem 0.89rem 0 0.7rem;
+    }
+    .choose .choose-line{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0.46rem;
+    }
 
+    .choose .choose-content {
+        width: fit-content;
+        height: 0.22rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .choose-content .text {
+        width: fit-content;
+        height: 0.22rem;
+        font-size: 0.16rem;
+        line-height: 0.22rem;;
+    }
+    #window, #cloud, #meteor, #kun {
+        width: 2.9rem;
+        height: 1.65rem;
+        position: absolute;
+        z-index: 100;
+        padding: 0.35rem 0.39rem 0.5rem 0.44rem ;
+    }
 </style>

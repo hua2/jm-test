@@ -1,13 +1,16 @@
 <template>
-    <div id="app">
-        <SunQuestion v-if="nowId === 1"></SunQuestion>
-        <DreamQuestion v-if="nowId === 2"></DreamQuestion>
-        <MovieQuestion v-if="nowId === 3"></MovieQuestion>
-        <MusicQuestion v-if="nowId === 4"></MusicQuestion>
-        <BirthQuestion v-if="nowId ===5"></BirthQuestion>
-        <WindowQuestion v-if="nowId ===6"></WindowQuestion>
+    <div id="app"
+         :class="{sun:nowId===1,dream:nowId===2,movie:nowId===3,music:nowId===4,birth:nowId===5,window:nowId===6}">
+        <div class="page">
+            <SunQuestion v-if="nowId === 1"></SunQuestion>
+            <DreamQuestion v-if="nowId === 2"></DreamQuestion>
+            <MovieQuestion v-if="nowId === 3"></MovieQuestion>
+            <MusicQuestion v-if="nowId === 4"></MusicQuestion>
+            <BirthQuestion v-if="nowId ===5"></BirthQuestion>
+            <WindowQuestion v-if="nowId ===6"></WindowQuestion>
+        </div>
         <FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>
-        <div class="icon_audio" :class="{sound_icon_on:musicStarted}" id="btn_audio"
+        <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
     </div>
 </template>
@@ -62,10 +65,12 @@
                     this.total.sun = res.answer;
                 }
                 if (res.id === 2) {
+                    this.stopMusicAnim();
                     this.nowId = 4;
                     this.total.dream = res.answer;
                 }
                 if (res.id === 3) {
+                    this.stopMusicAnim();
                     this.nowId = 4;
                     this.total.movie = res.answer;
                 }
@@ -87,7 +92,7 @@
                 }
             });
         },
-        mounted(){
+        mounted() {
             this.startMusicAnim();
         },
         methods: {
@@ -218,7 +223,7 @@
                 const that = this;
                 //开始滚动动画
                 this.musicAnimId = setInterval(function () {
-                    let audio = document.getElementById("btn_audio");
+                    let audio = that.$refs.btnAudio;
                     let rotateStyle = "rotate(" + that.musicRotate + "deg)";
                     audio.style.transform = rotateStyle;
                     audio.style["-moz-transform"] = rotateStyle;
@@ -257,10 +262,39 @@
         background: #323232;
     }
 
-    #app {
+    #app, .page {
         width: 100%;
         height: 100%;
-        background: #323232;
+    }
+
+    .sun {
+        background: url("./assets/bg-sun.png");
+        background-size: 100% 100%;
+    }
+
+    .dream {
+        background: url("./assets/bg-dream.png");
+        background-size: 100% 100%;
+    }
+
+    .movie {
+        background: url("./assets/bg-movie.png");
+        background-size: 100% 100%;
+    }
+
+    .music {
+        background: url("./assets/bg-music.png");
+        background-size: 100% 100%;
+    }
+
+    .birth {
+        background: url("./assets/bg-birth.png");
+        background-size: 100% 100%;
+    }
+
+    .window {
+        background: url("./assets/bg-window.png");
+        background-size: 100% 100%;
     }
 
     .icon_audio {
@@ -278,4 +312,83 @@
         background: url("./assets/icon_audio.png") 0 0 no-repeat;
         background-size: 100% 100%;
     }
+
+    .title {
+        width: 2.16rem;
+        height: 0.42rem;
+        line-height: 0.2rem;
+        padding: 1.04rem 0 0 0.28rem;
+        font-size: 0.14rem;
+        color: #fff;
+        letter-spacing: 0.04rem;
+        font-weight: 900;
+    }
+
+    .title.pre {
+        white-space: pre;
+    }
+
+    .img {
+        width: 100%;
+        height: 1.71rem;
+        padding-top: 0.5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .img img {
+        width: 1.29rem;
+        height: 1.71rem;
+        opacity: 0.6;
+        margin: 0 0.17rem;
+        transition: opacity .5s;
+        box-shadow: -1px 1px 3px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    .img img.active {
+        opacity: 1;
+    }
+
+    .choose-content {
+        margin: 0 auto;
+        padding-top: 0.3rem;
+        width: 1.63rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .choose-content .text {
+        width: 0.4rem;
+        height: 0.28rem;
+        font-size: 0.2rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        line-height: 0.28rem;
+        display: block;
+        margin-left: 0.06rem;
+    }
+
+    .choose-content .button {
+        width: 0.14rem;
+        height: 0.14rem;
+        display: block;
+        margin: auto 0;
+        background: url("./assets/unselected.png");
+        background-size: 100% 100%;
+    }
+
+    .choose-content .button.active {
+        background: url("./assets/selected.png");
+        background-size: 100% 100%;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity 2s;
+    }
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+    {
+        opacity: 0;
+    }
+
 </style>

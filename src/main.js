@@ -3,7 +3,6 @@ import App from './App.vue'
 import './plugin/flexible'
 import BUS from './service/bus'
 
-
 Vue.config.productionTip = false;
 BUS(Vue);
 

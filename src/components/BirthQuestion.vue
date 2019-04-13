@@ -1,6 +1,6 @@
 <template>
     <div id="birth-ques">
-        <div class="title">{{showWord}}</div>
+        <div class="title pre">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
                 <img src="../assets/sunset.png" alt="" :class="{active:active ==='a'}">
@@ -8,7 +8,7 @@
         </transition>
         <transition name="fade">
             <div class="choose" v-if="showUnKnow">
-                <div class="choose-content" @click="chooseAnswer('a')">
+                <div class="choose-content" @click="chooseAnswer('a')" style=" padding-right: 0.16rem;">
                     <span class="button" :class="{active:active ==='a'}"></span>
                     <span class="text">自己一个人过，保持低调 </span>
                 </div>
@@ -27,7 +27,7 @@
 
 <script>
     export default {
-        name: "BrithQuestion",
+        name: "BirthQuestion",
         data() {
             return {
                 word: "新的一天结束了\n夜晚的空气引人沉思\n你想起周末是自己的生日，你会？",
@@ -69,79 +69,41 @@
     #birth-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-birth.png");
-        background-size: 100% 100%;
     }
 
     .title {
-        width: calc(100% - 0.56rem);
-        height: 1.5rem;
-        line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
-        font-size: 0.28rem;
-        letter-spacing: 0.08rem;
-        font-weight: 900;
-        white-space: pre;
-        color: rgba(255, 255, 255, 1);
+        height: 0.6rem;
     }
 
     .img {
         width: 100%;
+        height: 2.5rem;
+        padding-top: 0.2rem;
     }
 
     .img img {
+        box-shadow: unset;
+        opacity:1;
         width: 100%;
-        height: 5rem;
+        margin: 0;
+        height: 100%;
     }
 
     .choose {
-        width: fit-content;
-        height: 3rem;
-        line-height: 1rem;
-        margin: 0.5rem auto 0 auto;
-        font-size: 0.32rem;
-        font-weight: 100;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
+        padding-top: 0.17rem;
     }
 
     .choose .choose-content {
-        width: 100%;
-        text-align: center;
-        display: flex;
+        width: fit-content;
+        height: 0.22rem;
+        margin: 0 auto;
+        padding: 0.13rem 0;
     }
 
     .choose-content .text {
-        padding-left: 0.2rem;
-        display: block;
-        font-weight: 400;
-        letter-spacing: 0.02rem;
+        width: fit-content;
+        height: 0.22rem;
+        font-size: 0.16rem;
+        line-height: 0.22rem;;
     }
-
-    .choose-content .button {
-        width: 0.26rem;
-        height: 0.28rem;
-        display: block;
-        margin: auto 0;
-        background: url("../assets/unselected.png");
-        background-size: 100% 100%;
-    }
-
-    .choose-content .button.active {
-        background: url("../assets/selected.png");
-        background-size: 100% 100%;
-    }
-
-
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity 1s;
-    }
-
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-    {
-        opacity: 0;
-    }
-
-
 </style>

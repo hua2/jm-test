@@ -1,6 +1,7 @@
 <template>
-    <div id="dream-ques">
-        <div class="title">{{showWord}}</div>
+    <div id="movie-ques">
+        <div class="title pre">{{showWord}}</div>
+        <img src="../assets/movie-line.png" alt="" class="line">
         <transition name="fade">
             <div id="seats" v-if="showUnKnow">
                 <div class="choose">
@@ -95,47 +96,51 @@
 </script>
 
 <style scoped>
-    #dream-ques {
+
+    #movie-ques {
         width: 100%;
         height: 100%;
-        background: url("../assets/bg-movie.png");
-        background-size: 100% 100%;
+        position: relative;
+    }
+    .line{
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 1.04rem;
     }
 
     .title {
-        width: calc(100% - 0.56rem);
-        height: 2.5rem;
-        line-height: 0.4rem;
-        padding: 2.08rem 0 0.2rem 0.56rem;
-        font-size: 0.28rem;
-        letter-spacing: 0.08rem;
-        font-weight: 900;
-        white-space: pre;
-        color: rgba(255, 255, 255, 1);
+        height: 0.8rem;
+        padding-bottom: 0.49rem;
     }
 
     .choose {
         width: 100%;
         display: flex;
         justify-content: center;
+        z-index: 100;
     }
 
     .choose span {
-        margin: 0.2rem 0.2rem;
+        margin: 0.1rem 0.1rem;
+    }
+
+    .choose.example {
+        padding-top: 0.1rem;
     }
 
     .choose.example span {
-        margin: 0.2rem 0.4rem;
+        margin: 0.03rem 0.2rem;
     }
 
     .choose.text span {
-        width: 0.72rem;
+        width: 0.36rem;
         text-align: center;
         display: block;
         font-weight: 400;
-        margin: 0 0.4rem;
-        height: 0.4rem;
-        line-height: 0.4rem;
+        margin: 0 0.2rem;
+        height: 0.2rem;
+        line-height: 0.2rem;
     }
 
     .choose.text span:nth-child(1) {
@@ -151,36 +156,25 @@
     }
 
     .choose .empty {
-        width: 0.72rem;
-        height: 0.68rem;
+        width: 0.36rem;
+        height: 0.34rem;
         background: url("../assets/empty.png");
         background-size: 100% 100%;
 
     }
 
     .choose .option {
-        width: 0.72rem;
-        height: 0.68rem;
+        width: 0.36rem;
+        height: 0.34rem;
         background: url("../assets/option.png");
         background-size: 100% 100%;
 
     }
 
     .choose .select {
-        width: 0.72rem;
-        height: 0.68rem;
+        width: 0.36rem;
+        height: 0.34rem;
         background: url("../assets/select.png");
         background-size: 100% 100%;
     }
-
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity 1s;
-    }
-
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-    {
-        opacity: 0;
-    }
-
-
 </style>
