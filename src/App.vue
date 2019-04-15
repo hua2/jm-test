@@ -75,10 +75,12 @@
                     this.total.movie = res.answer;
                 }
                 if (res.id === 4 && res.answer === 'a') {
+                    this.startMusicAnim();
                     this.nowId = 5;
                     this.total.music = res.answer;
                 }
                 if (res.id === 4 && res.answer === 'b') {
+                    this.startMusicAnim();
                     this.nowId = 6;
                     this.total.music = res.answer;
                 }
@@ -298,11 +300,11 @@
     }
 
     .icon_audio {
-        width: 0.37rem;
-        height: 0.37rem;
+        width: 0.32rem;
+        height: 0.32rem;
         position: absolute;
-        top: 0.38rem;
-        right: 0.43rem;
+        top: 0.2rem;
+        right: 0.22rem;
         z-index: 999;
         background: url("./assets/icon_audio_off.png") no-repeat 0 0;
         background-size: 100% 100%;

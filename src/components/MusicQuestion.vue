@@ -51,7 +51,7 @@
                         that.startMusicAnim();
                     }, 1000);
                 }
-            }, 200);
+            }, 150);
         },
         methods: {
             chooseAnswer: function (ans) {

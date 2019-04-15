@@ -43,7 +43,7 @@
                     clearInterval(timer);
                     that.showUnKnow = true
                 }
-            }, 200);
+            }, 150);
         },
         methods: {
             chooseAnswer: function (ans) {
