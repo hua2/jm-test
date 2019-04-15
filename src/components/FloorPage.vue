@@ -1,5 +1,5 @@
 <template>
-    <div class="floorPage">
+    <div id="floorPage" class="floorPage">
         <div id="ele" v-if="showPage==='a'">
             <img src="../assets/electricity.png" :class="{shadow:gif}" alt="">
         </div>
@@ -19,19 +19,20 @@
         <div id="wind" v-if="showPage==='d'">
             <img src="../assets/wind.png" :class="{shadow:gif}" alt="">
         </div>
-        <video autoplay="autoplay" loop v-if="gif">
-            <source  v-if="showPage==='a'" src="../assets/ele.mp4" type="video/mp4">
-            <source  v-if="showPage==='f'" src="../assets/light.mp4" type="video/mp4">
-            <source  v-if="showPage==='c'" src="../assets/coal.mp4" type="video/mp4">
-            <source  v-if="showPage==='e'" src="../assets/gas.mp4" type="video/mp4">
-            <source  v-if="showPage==='e'" src="../assets/gas.mp4" type="video/mp4">
-            <source  v-if="showPage==='b'" src="../assets/oil.mp4" type="video/mp4">
-            <source  v-if="showPage==='d'" src="../assets/wind.mp4" type="video/mp4">
+        <video autoplay muted id="vid">
+            <source v-if="showPage==='a'" src="../assets/ele.mp4" type="video/mp4">
+            <source v-if="showPage==='f'" src="../assets/light.mp4" type="video/mp4">
+            <source v-if="showPage==='c'" src="../assets/coal.mp4" type="video/mp4">
+            <source v-if="showPage==='e'" src="../assets/gas.mp4" type="video/mp4">
+            <source v-if="showPage==='e'" src="../assets/gas.mp4" type="video/mp4">
+            <source v-if="showPage==='b'" src="../assets/oil.mp4" type="video/mp4">
+            <source v-if="showPage==='d'" src="../assets/wind.mp4" type="video/mp4">
         </video>
     </div>
 </template>
 
 <script>
+
     export default {
         name: "FloorPage",
         props: {
@@ -45,8 +46,9 @@
         created() {
             setTimeout(() => {
                 this.gif = false
-            }, 1500);
-        }
+            }, 2000);
+        },
+        methods: {}
     }
 </script>
 
@@ -67,6 +69,12 @@
     .floorPage video {
         width: 100%;
         height: 100%;
+    }
+
+    canvas {
+        position: absolute;
+        top: 0;
+        z-index: 101;
     }
 
     .floorPage .shadow {

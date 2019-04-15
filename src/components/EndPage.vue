@@ -1,6 +1,8 @@
 <template>
     <div id="end-page">
-        <div class="text">能源属性生成{{showWord}}</div>
+        <div class="text">能源属性生成
+            <span>{{showWord}}</span>
+        </div>
     </div>
 </template>
 
@@ -9,7 +11,7 @@
         name: "EndPage",
         data() {
             return {
-                word: "... ...",
+                word: "...",
                 showWord: "",
                 showWordId: undefined
             }
@@ -52,5 +54,9 @@
         text-align: center;
         width: 100%;
         padding-top: 3rem;
+    }
+    .text span{
+        position: absolute;
+
     }
 </style>

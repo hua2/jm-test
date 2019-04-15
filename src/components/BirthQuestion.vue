@@ -11,14 +11,20 @@
                 <div class="choose-content" @click="chooseAnswer('a')" style=" padding-right: 0.16rem;">
                     <span class="button" :class="{active:active ==='a'}"></span>
                     <span class="text">自己一个人过，保持低调 </span>
+
+                    <div class="choose-active" v-if="active ==='a'"></div>
                 </div>
                 <div class="choose-content" @click="chooseAnswer('b')">
                     <span class="button" :class="{active:active ==='b'}"></span>
                     <span class="text">静静等待，看哪个朋友记得</span>
+
+                    <div class="choose-active" v-if="active ==='b'"></div>
                 </div>
                 <div class="choose-content" @click="chooseAnswer('c')">
                     <span class="button" :class="{active:active ==='c'}"></span>
                     <span class="text">召集朋友，办个热闹的派对</span>
+
+                    <div class="choose-active" v-if="active ==='c'"></div>
                 </div>
             </div>
         </transition>
@@ -105,5 +111,10 @@
         height: 0.22rem;
         font-size: 0.16rem;
         line-height: 0.22rem;;
+    }
+    .choose-active{
+        width: 3rem;
+        left: -0.5rem;
+        top: -0.22rem;
     }
 </style>

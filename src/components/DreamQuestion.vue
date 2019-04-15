@@ -6,14 +6,17 @@
                 <div class="choose-content" @click="chooseAnswer('a')">
                     <span class="button" :class="{active:active ==='a'}"></span>
                     <span class="text">最近可能倒大霉了</span>
+                    <div class="choose-active" v-if="active ==='a'"></div>
                 </div>
                 <div class="choose-content" @click="chooseAnswer('b')">
                     <span class="button" :class="{active:active ==='b'}"></span>
                     <span class="text">大概是运气不好，没什么大不了了</span>
+                    <div class="choose-active" v-if="active ==='b'"></div>
                 </div>
                 <div class="choose-content" @click="chooseAnswer('c')">
                     <span class="button" :class="{active:active ==='c'}"></span>
                     <span class="text">梦是反的，一定预示着好运</span>
+                    <div class="choose-active" v-if="active ==='c'"></div>
                 </div>
             </div>
         </transition>
@@ -53,7 +56,7 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 2, answer: ans});
-                }, 2000);
+                }, 500);
 
             }
         }
@@ -85,6 +88,6 @@
         width: fit-content;
         height: 0.22rem;
         font-size: 0.16rem;
-        line-height: 0.22rem;;
+        line-height: 0.22rem;
     }
 </style>

@@ -16,15 +16,18 @@
                     <div class="choose-content" @click="chooseAnswer('a')">
                         <span class="button" :class="{active:active ==='a'}"></span>
                         <span class="text">浮云 </span>
+                        <div class="choose-active" v-if="active ==='a'"></div>
                     </div>
                     <div class="choose-content" @click="chooseAnswer('b')">
                         <span class="button" :class="{active:active ==='b'}"></span>
                         <span class="text">流星</span>
+                        <div class="choose-active" v-if="active ==='b'"></div>
                     </div>
                 </div>
                 <div class="choose-content" @click="chooseAnswer('c')">
                     <span class="button" :class="{active:active ==='c'}"></span>
                     <span class="text">鲲鹏</span>
+                    <div class="choose-active" v-if="active ==='c'"></div>
                 </div>
             </div>
         </transition>
@@ -64,7 +67,7 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 6, answer: ans});
-                }, 1000)
+                }, 500)
 
             }
         }
@@ -120,6 +123,12 @@
         line-height: 0.22rem;;
     }
 
+    .choose-active{
+        width: 0.8rem;
+        height: 0.8rem;
+        left: -0.32rem;
+        top: -0.26rem;
+    }
     .img img.ans-img {
         width: 2.9rem;
         height: 1.65rem;

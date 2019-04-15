@@ -4,7 +4,8 @@
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
                 <img id="pointer" src="../assets/pointer.png" alt="" class="pointer">
-                <img id="player" src="../assets/player.png" alt="" class="player">
+                <img id="player" src="../assets/player.png" alt="" class="player"
+                     @click="musicStarted?stopMusicAnim():startMusicAnim()">
             </div>
         </transition>
         <transition name="fade">
@@ -12,13 +13,20 @@
                 <div class="choose-content" @click="chooseAnswer('a')">
                     <span class="button" :class="{active:active ==='a'}"></span>
                     <span class="text">心有花木，向阳而生 </span>
+
+                    <div class="choose-active" v-if="active ==='a'"></div>
                 </div>
                 <div class="choose-content" @click="chooseAnswer('b')">
                     <span class="button" :class="{active:active ==='b'}"></span>
                     <span class="text">凝视深渊，深渊回望</span>
+                    <div class="choose-active" v-if="active ==='b'"></div>
                 </div>
             </div>
         </transition>
+
+        <audio id="question" preload="auto" loop>
+            <source src="../assets/bg-question.mp3">
+        </audio>
     </div>
 </template>
 
@@ -32,8 +40,8 @@
                 showUnKnow: false,
                 active: undefined,
                 chooseAnswerId: undefined,
-                musicCloseId: undefined,
                 musicAnimId: undefined,
+                musicStarted: false,
                 musicRotate: 0,
             }
         },
@@ -48,16 +56,10 @@
                     clearInterval(timer);
                     that.showUnKnow = true;
                     setTimeout(() => {
-                        that.startPointerAnim();
                         that.startMusicAnim();
-                        this.musicCloseId = setTimeout(() => {
-                            //停止音乐
-                            let music = document.getElementById("audio-question");
-                            music.pause();
-                        }, 20000);
                     }, 1000);
                 }
-            }, 150);
+            }, 100);
         },
         methods: {
             chooseAnswer: function (ans) {
@@ -67,11 +69,14 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 4, answer: ans});
-                }, 2000);
+                }, 500);
 
             },
             startPointerAnim: function () {
                 let pointer = document.getElementById("pointer");
+                if (!pointer) {
+                    return;
+                }
                 pointer.style.transform = "rotate(30deg)";
                 pointer.style["-moz-transform"] = "rotate(30deg)";
                 pointer.style["-webkit-transform"] = "rotate(30deg)";
@@ -80,6 +85,9 @@
             },
             stopPointerAnim: function () {
                 let pointer = document.getElementById("pointer");
+                if (!pointer) {
+                    return;
+                }
                 pointer.style.transform = "rotate(0deg)";
                 pointer.style["-moz-transform"] = "rotate(0deg)";
                 pointer.style["-webkit-transform"] = "rotate(0deg)";
@@ -87,12 +95,17 @@
                 pointer.style["-ms-transform"] = "rotate(0deg)";
             },
             startMusicAnim: function () {
+                if (this.musicStarted) {
+                    return;
+                }
+                this.startQuestionMusic();
+                this.startPointerAnim();
                 const that = this;
-                // 播放音乐
-                let music = document.getElementById("audio-question");
-                music.play();
                 this.musicAnimId = setInterval(function () {
                     let player = document.getElementById("player");
+                    if (!player) {
+                        return;
+                    }
                     let rotateStyle = "rotate(" + that.musicRotate + "deg)";
                     player.style.transform = rotateStyle;
                     player.style["-moz-transform"] = rotateStyle;
@@ -104,18 +117,26 @@
                         that.musicRotate = 0;
                     }
                 }, 40);
+                this.musicStarted = true;
             },
             stopMusicAnim: function () {
-                //停止音乐
-                let music = document.getElementById("audio-question");
-                music.pause();
-                if (this.musicCloseId) {
-                    clearTimeout(this.musicCloseId);
-                }
                 if (this.musicAnimId) {
                     clearInterval(this.musicAnimId);
                 }
+                this.stopQuestionMusic();
+                this.stopPointerAnim();
+                this.musicStarted = false;
             },
+            startQuestionMusic: function () {
+                // 播放音乐
+                let music = document.getElementById("question");
+                music.play();
+            },
+            stopQuestionMusic: function () {
+                //停止音乐
+                let music = document.getElementById("question");
+                music.pause();
+            }
         },
         beforeDestroy() {
             this.stopMusicAnim();
@@ -179,6 +200,10 @@
         height: 0.22rem;
         font-size: 0.16rem;
         line-height: 0.22rem;;
+    }
+    .choose-active {
+        width: 2.2rem;
+        left: -0.45rem;
     }
 
 </style>

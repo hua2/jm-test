@@ -6,7 +6,7 @@
             <div id="seats" v-if="showUnKnow">
                 <div class="choose">
                     <span class="empty"></span>
-                    <span class="option" @click="chooseAnswer('a')"></span>
+                    <span class="option" @click="chooseAnswer('a')" :class="{active:active==='a'}"></span>
                     <span class="empty"></span>
                     <span class="select"></span>
                     <span class="empty"></span>
@@ -21,7 +21,7 @@
                 <div class="choose">
                     <span class="select"></span>
                     <span class="select"></span>
-                    <span class="option" @click="chooseAnswer('c')"></span>
+                    <span class="option" @click="chooseAnswer('c')" :class="{active:active==='c'}"></span>
                     <span class="select"></span>
                     <span class="empty"></span>
                 </div>
@@ -37,7 +37,7 @@
                     <span class="select"></span>
                     <span class="select"></span>
                     <span class="empty"></span>
-                    <span class="option" @click="chooseAnswer('b')"></span>
+                    <span class="option" @click="chooseAnswer('b')" :class="{active:active==='b'}"></span>
                 </div>
                 <div class="choose example">
                     <span class="option"></span>
@@ -88,7 +88,7 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 3, answer: ans});
-                }, 2000);
+                },500);
 
             }
         }
@@ -102,11 +102,15 @@
         height: 100%;
         position: relative;
     }
+    #seats{
+        z-index: 101;
+    }
     .line{
         position: absolute;
         width: 100%;
         height: auto;
         top: 1.04rem;
+        z-index: 100;
     }
 
     .title {
@@ -167,6 +171,12 @@
         width: 0.36rem;
         height: 0.34rem;
         background: url("../assets/option.png");
+        background-size: 100% 100%;
+        z-index: 101;
+
+    }
+    .choose .option.active{
+        background: url("../assets/movie-active.png");
         background-size: 100% 100%;
 
     }

@@ -22,7 +22,7 @@
                 <source src="./assets/bg-music.mp3">
             </audio>
 
-            <audio id="audio-question" preload="auto" loop>
+            <audio id="questionLoad" preload="auto" loop>
                 <source src="./assets/bg-question.mp3">
             </audio>
             <!--预先加载图片-->
@@ -50,8 +50,10 @@
             <img src="./assets/sunset.png" alt="">
             <img src="./assets/wind.png" alt="">
             <img src="./assets/window.png" alt="">
+            <img src="./assets/movie-active.png" alt="">
+            <img src="./assets/option-selected.png" alt="">
             <!--预先加载视频-->
-            <video id="videos" preload="auto" loop>
+            <video id="videos" preload="auto" loop muted>
                 <source src="./assets/ele.mp4" type="video/mp4">
                 <source src="./assets/light.mp4" type="video/mp4">
                 <source src="./assets/coal.mp4" type="video/mp4">
@@ -93,7 +95,7 @@
         },
         data() {
             return {
-                nowId: 0,
+                nowId: 7,
                 total: {
                     sun: undefined,
                     dream: undefined,
@@ -296,7 +298,7 @@
                 if (this.musicAnimId) {
                     clearInterval(this.musicAnimId);
                 }
-            },
+            }
         },
         beforeDestroy() {
             this.stopMusicAnim();
@@ -423,14 +425,30 @@
         opacity: 1;
     }
 
+    .choose {
+        z-index: 101;
+    }
+
     .choose-content {
         margin: 0 auto;
         padding-top: 0.3rem;
         width: 1.63rem;
         display: flex;
         justify-content: center;
+        position: relative;
     }
 
+    .choose-active {
+        width: 100%;
+        height: 1.06rem;
+        position: absolute;
+        left: 0.22rem;
+        top: -0.22rem;
+        background: url("./assets/option-selected.png");
+        padding: 0 0.2rem;
+        background-size: 100% 100%;
+        z-index: 100;
+    }
     .choose-content .text {
         width: 0.4rem;
         height: 0.28rem;
@@ -449,11 +467,13 @@
         margin: auto 0;
         background: url("./assets/unselected.png");
         background-size: 100% 100%;
+        z-index: 101;
+    }
+    .choose-content .text {
+        z-index: 101;
     }
 
     .choose-content .button.active {
-        width: 0.14rem;
-        height: 0.14rem;
         background: url("./assets/selected.png");
         background-size: 100% 100%;
     }
