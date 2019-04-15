@@ -8,8 +8,9 @@
             <MusicQuestion v-if="nowId === 4"></MusicQuestion>
             <BirthQuestion v-if="nowId ===5"></BirthQuestion>
             <WindowQuestion v-if="nowId ===6"></WindowQuestion>
+            <FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>
         </div>
-        <FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>
+        <!--<FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>-->
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
     </div>
@@ -205,7 +206,7 @@
             },
             startMusic() {
                 // 播放音乐
-                this.audio.src = "http://sf.sycdn.kuwo.cn/resource/n1/2/38/1387182506.mp3";
+                this.audio.src = "./assets/bg-music.mp3";
                 this.audio.load();
                 this.audio.play().then(() => {
                     console.log("playing……")
@@ -371,7 +372,7 @@
     }
 
     .choose-content .button {
-        width: 0.14rem;
+        width: 0.13rem;
         height: 0.14rem;
         display: block;
         margin: auto 0;
@@ -380,6 +381,8 @@
     }
 
     .choose-content .button.active {
+        width: 0.14rem;
+        height: 0.14rem;
         background: url("./assets/selected.png");
         background-size: 100% 100%;
     }

@@ -48,7 +48,7 @@
         created() {
             setTimeout(() => {
                 this.gif = false
-            }, 1000);
+            }, 1500);
         }
     }
 </script>
@@ -77,7 +77,7 @@
 
     .link {
         width: 1.45rem;
-        height: 0.6rem;
+        height: 0.62rem;
         left: 0.35rem;
         bottom: 0.3rem;
         position: absolute;
