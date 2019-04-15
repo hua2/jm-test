@@ -2,32 +2,32 @@
     <div class="floorPage">
         <div id="ele" v-if="showPage==='a'">
             <img src="../assets/electricity.png" :class="{shadow:gif}" alt="">
-            <img src="../assets/ele.gif" alt="" v-if="gif">
+            <video src="../assets/ele.mp4" type="video/mp4" v-if="gif"></video>
             <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="light" v-if="showPage==='f'">
             <img src="../assets/light.png" :class="{shadow:gif}" alt="">
-            <img src="../assets/light.gif" alt="" v-if="gif">
+            <video src="../assets/ele.mp4" type="video/mp4" v-if="gif"></video>
             <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="coal" v-if="showPage==='c'">
             <img src="../assets/coal.png" :class="{shadow:gif}" alt="">
-            <img src="../assets/ele.gif" alt="" v-if="gif">
+            <video src="../assets/ele.mp4" type="video/mp4" v-if="gif"></video>
             <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="gas" v-if="showPage==='e'">
             <img src="../assets/gas.png" :class="{shadow:gif}" alt="">
-            <img src="../assets/ele.gif" alt="" v-if="gif">
+            <video src="../assets/ele.mp4" type="video/mp4" v-if="gif"></video>
             <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="oil" v-if="showPage==='b'">
             <img src="../assets/oil.png" :class="{shadow:gif}" alt="">
-            <img src="../assets/ele.gif" alt="" v-if="gif">
+            <video src="../assets/ele.mp4" type="video/mp4" v-if="gif"></video>
             <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="wind" v-if="showPage==='d'">
             <img src="../assets/wind.png" :class="{shadow:gif}" alt="">
-            <img src="../assets/wind.gif" alt="" v-if="gif">
+            <video src="../assets/ele.mp4" type="video/mp4" v-if="gif"></video>
             <a class="link" href="http://www.jm.energy"></a>
         </div>
 
@@ -65,6 +65,11 @@
         width: 100%;
         height: 100%;
 
+    }
+
+    .floorPage video {
+        width: 100%;
+        height: 100%;
     }
 
     .floorPage .shadow {
