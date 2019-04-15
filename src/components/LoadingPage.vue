@@ -2,7 +2,7 @@
     <div id="loading-panel">
         <h1><strong>Loading...</strong></h1>
         <h2><strong>{{percent}}</strong></h2>
-        <span v-if="loaded" @click="start()" class="start">开始</span>
+        <!--<span v-if="loaded" @click="start()" class="start">开始</span>-->
     </div>
 </template>
 
@@ -29,13 +29,13 @@
                 // 模拟加载
                 this.loadingIntervalId = setInterval(() => {
                     this.count++;
-                }, 60);
+                }, 30);
             },
-            start: function () {
-                let music = document.getElementById("audio");
-                music.play();
-                this.$bus.$emit("answer", {id: 0});
-            }
+            // start: function () {
+            //     let music = document.getElementById("audio");
+            //     music.play();
+            //     this.$bus.$emit("answer", {id: 0});
+            // }
         },
         watch: {
             count: function (val) {

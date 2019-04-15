@@ -1,6 +1,6 @@
 <template>
     <div id="app"
-         :class="{sun:nowId===1,dream:nowId===2,movie:nowId===3,music:nowId===4,birth:nowId===5,window:nowId===6}">
+         :class="{sun:nowId===1,dream:nowId===2,movie:nowId===3,music:nowId===4,birth:nowId===5,window:nowId===6,start:nowId===8}">
         <div class="page">
             <LoadingPage v-if="nowId === 0"></LoadingPage>
             <SunQuestion v-if="nowId === 1"></SunQuestion>
@@ -10,6 +10,7 @@
             <BirthQuestion v-if="nowId ===5"></BirthQuestion>
             <WindowQuestion v-if="nowId ===6"></WindowQuestion>
             <FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>
+            <StartPage v-if="nowId===8"></StartPage>
         </div>
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
@@ -29,6 +30,8 @@
             <img src="./assets/bg-music.png" alt="">
             <img src="./assets/bg-sun.png" alt="">
             <img src="./assets/bg-window.png" alt="">
+            <img src="./assets/bg-start.png" alt="">
+            <img src="./assets/start-btn.png" alt="">
             <img src="./assets/cloud.png" alt="">
             <img src="./assets/coal.png" alt="">
             <img src="./assets/electricity.png" alt="">
@@ -69,10 +72,12 @@
     import BirthQuestion from "./components/BirthQuestion";
     import WindowQuestion from "./components/WindowQuestion";
     import LoadingPage from "./components/LoadingPage";
+    import StartPage from "./components/StartPage";
 
     export default {
         name: 'app',
         components: {
+            StartPage,
             LoadingPage,
             WindowQuestion,
             BirthQuestion,
@@ -333,10 +338,14 @@
     .birth {
         background: url("./assets/bg-birth.png");
         background-size: 100% 100%;
-    }
+    }start
 
     .window {
         background: url("./assets/bg-window.png");
+        background-size: 100% 100%;
+    }
+    .start{
+        background: url("./assets/bg-start.png");
         background-size: 100% 100%;
     }
 
