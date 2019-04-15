@@ -16,7 +16,7 @@
             start: function () {
                 let music = document.getElementById("audio");
                 music.play();
-                this.$bus.$emit("answer", {id: 0});
+                this.$bus.$emit("answer", {id: 8});
             }
         }
     }

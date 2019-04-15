@@ -44,6 +44,7 @@
                 if (val === 100) {
                     this.loaded = true;
                     clearInterval(this.loadingIntervalId);
+                    this.$bus.$emit("answer", {id: 0});
                 }
             }
         }

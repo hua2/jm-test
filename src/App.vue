@@ -13,6 +13,7 @@
             <StartPage v-if="nowId===8"></StartPage>
         </div>
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
+             v-if="nowId===1|| nowId===2|| nowId===3|| nowId===4|| nowId===5|| nowId===6 "
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
         <div id="loading">
             <!--预先加载声音-->
@@ -107,6 +108,9 @@
         created() {
             this.$bus.$on("answer", (res) => {
                 if (res.id === 0) {
+                    this.nowId = 8;
+                }
+                if (res.id === 8) {
                     this.nowId = 1;
                     this.startMusicAnim();
                 }
@@ -338,13 +342,15 @@
     .birth {
         background: url("./assets/bg-birth.png");
         background-size: 100% 100%;
-    }start
+    }
 
+    start
     .window {
         background: url("./assets/bg-window.png");
         background-size: 100% 100%;
     }
-    .start{
+
+    .start {
         background: url("./assets/bg-start.png");
         background-size: 100% 100%;
     }
