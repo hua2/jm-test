@@ -1,6 +1,6 @@
 <template>
     <div id="app"
-         :class="{sun:nowId===1,dream:nowId===2,movie:nowId===3,music:nowId===4,birth:nowId===5,window:nowId===6,start:nowId===8}">
+         :class="{sun:nowId===1,dream:nowId===2,movie:nowId===3,music:nowId===4,birth:nowId===5,window:nowId===6,start:nowId===8,end:nowId===9}">
         <div class="page">
             <LoadingPage v-if="nowId === 0"></LoadingPage>
             <SunQuestion v-if="nowId === 1"></SunQuestion>
@@ -11,6 +11,7 @@
             <WindowQuestion v-if="nowId ===6"></WindowQuestion>
             <FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>
             <StartPage v-if="nowId===8"></StartPage>
+            <EndPage v-if="nowId===9"></EndPage>
         </div>
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
              v-if="nowId===1|| nowId===2|| nowId===3|| nowId===4|| nowId===5|| nowId===6 "
@@ -74,10 +75,12 @@
     import WindowQuestion from "./components/WindowQuestion";
     import LoadingPage from "./components/LoadingPage";
     import StartPage from "./components/StartPage";
+    import EndPage from "./components/EndPage";
 
     export default {
         name: 'app',
         components: {
+            EndPage,
             StartPage,
             LoadingPage,
             WindowQuestion,
@@ -90,7 +93,7 @@
         },
         data() {
             return {
-                nowId: 0,
+                nowId: 9,
                 total: {
                     sun: undefined,
                     dream: undefined,
@@ -344,13 +347,16 @@
         background-size: 100% 100%;
     }
 
-    start
     .window {
         background: url("./assets/bg-window.png");
         background-size: 100% 100%;
     }
 
     .start {
+        background: url("./assets/bg-start.png");
+        background-size: 100% 100%;
+    }
+    .end {
         background: url("./assets/bg-start.png");
         background-size: 100% 100%;
     }
