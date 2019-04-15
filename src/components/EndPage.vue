@@ -23,10 +23,10 @@
                 if (that.showWord === that.word) {
                     i = 0;
                 }
-            }, 400);
+            }, 200);
             setTimeout(() => {
                 this.$bus.$emit("answer", {id: 9});
-            }, 5000)
+            }, 2000)
         },
         beforeDestroy() {
             if (this.showWordId) {
