@@ -54,7 +54,7 @@
                     clearInterval(timer);
                     that.showUnKnow = true
                 }
-            }, 150);
+            }, 100);
         },
         methods: {
             chooseAnswer: function (ans) {

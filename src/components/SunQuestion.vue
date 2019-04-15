@@ -47,7 +47,7 @@
                     clearInterval(timer);
                     that.showUnKnow = true
                 }
-            }, 150);
+            }, 100);
         },
         methods: {
             chooseAnswer: function (ans) {
@@ -57,7 +57,7 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 1, answer: ans});
-                }, 2000);
+                }, 1000);
 
             }
         }
