@@ -32,6 +32,7 @@
                 showUnKnow: false,
                 active: undefined,
                 chooseAnswerId: undefined,
+                musicCloseId: undefined,
                 musicAnimId: undefined,
                 musicRotate: 0,
             }
@@ -52,6 +53,11 @@
                     }, 1000);
                 }
             }, 150);
+            this.musicCloseId = setTimeout(() => {
+                //停止音乐
+                let music = document.getElementById("audio-question");
+                music.pause();
+            }, 20000);
         },
         methods: {
             chooseAnswer: function (ans) {
@@ -82,6 +88,13 @@
             },
             startMusicAnim: function () {
                 const that = this;
+                // 播放音乐
+                let music = document.getElementById("audio-question");
+                if (!music.paused) {
+                    music.pause();
+                } else {
+                    music.play();
+                }
                 this.musicAnimId = setInterval(function () {
                     let player = document.getElementById("player");
                     let rotateStyle = "rotate(" + that.musicRotate + "deg)";
@@ -97,7 +110,15 @@
                 }, 40);
             },
             stopMusicAnim: function () {
-                clearInterval(this.musicAnimId);
+                //停止音乐
+                let music = document.getElementById("audio-question");
+                music.pause();
+                if (this.musicCloseId) {
+                    clearTimeout(this.musicCloseId);
+                }
+                if (this.musicAnimId) {
+                    clearInterval(this.musicAnimId);
+                }
             },
         },
         beforeDestroy() {
@@ -111,7 +132,8 @@
         width: 100%;
         height: 100%;
     }
-    .title{
+
+    .title {
         height: 0.6rem;
     }
 
@@ -122,8 +144,9 @@
         flex-direction: column;
         padding-top: 0;
     }
+
     .img img {
-        opacity:1;
+        opacity: 1;
         box-shadow: unset;
     }
 
@@ -142,6 +165,7 @@
         height: 2.49rem;
         margin: 0 auto;
     }
+
     .choose {
         padding-top: 0;
         padding-bottom: 0.85rem;

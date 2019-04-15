@@ -3,18 +3,10 @@
         <div class="title pre">{{showWord}}</div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
-                <transition name="fade">
-                    <img src="../assets/window.png" alt="" id="window" v-if="!active">
-                </transition>
-                <transition name="fade">
-                    <img src="../assets/cloud.png" alt="" id="cloud" v-if="active ==='a'">
-                </transition>
-                <transition name="fade">
-                    <img src="../assets/meteor.png" alt="" id="meteor" v-if="active ==='b'">
-                </transition>
-                <transition name="fade">
-                    <img src="../assets/kun.png" alt="" id="kun" v-if="active ==='c'">
-                </transition>
+                <img src="../assets/window.png" alt="" class="ans-img" :class="{active:!active}">
+                <img src="../assets/cloud.png" alt="" class="ans-img" :class="{active:active ==='a'}">
+                <img src="../assets/meteor.png" alt="" class="ans-img" :class="{active:active ==='b'}">
+                <img src="../assets/kun.png" alt="" class="ans-img" :class="{active:active ==='c'}">
                 <img src="../assets/people.png" alt="" id="people">
             </div>
         </transition>
@@ -94,8 +86,9 @@
         height: 2.5rem;
         padding-top: 0.2rem;
     }
+
     .img img {
-        opacity:1;
+        opacity: 1;
         box-shadow: unset;
         width: 100%;
         margin: 0;
@@ -106,7 +99,8 @@
     .choose {
         padding: 0.58rem 0.89rem 0 0.7rem;
     }
-    .choose .choose-line{
+
+    .choose .choose-line {
         display: flex;
         justify-content: space-between;
         padding-bottom: 0.46rem;
@@ -125,11 +119,19 @@
         font-size: 0.16rem;
         line-height: 0.22rem;;
     }
-    #window, #cloud, #meteor, #kun {
+
+    .img img.ans-img {
         width: 2.9rem;
         height: 1.65rem;
         position: absolute;
         z-index: 100;
-        padding: 0.35rem 0.39rem 0.5rem 0.44rem ;
+        padding: 0.35rem 0.39rem 0.5rem 0.44rem;
+        opacity: 0;
+        transition: opacity 1s;
     }
+
+    .img .ans-img.active {
+        opacity: 1;
+    }
+
 </style>

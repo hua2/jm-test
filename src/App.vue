@@ -2,6 +2,7 @@
     <div id="app"
          :class="{sun:nowId===1,dream:nowId===2,movie:nowId===3,music:nowId===4,birth:nowId===5,window:nowId===6}">
         <div class="page">
+            <LoadingPage v-if="nowId === 0"></LoadingPage>
             <SunQuestion v-if="nowId === 1"></SunQuestion>
             <DreamQuestion v-if="nowId === 2"></DreamQuestion>
             <MovieQuestion v-if="nowId === 3"></MovieQuestion>
@@ -10,9 +11,15 @@
             <WindowQuestion v-if="nowId ===6"></WindowQuestion>
             <FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>
         </div>
-        <!--<FloorPage v-if="nowId ===7" :showPage="showPage"></FloorPage>-->
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
+        <audio id="audio" preload="auto" loop>
+            <source src="./assets/bg-music.mp3">
+        </audio>
+
+        <audio id="audio-question" preload="auto" loop>
+            <source src="./assets/bg-question.mp3">
+        </audio>
     </div>
 </template>
 
@@ -25,10 +32,12 @@
     import FloorPage from "./components/FloorPage";
     import BirthQuestion from "./components/BirthQuestion";
     import WindowQuestion from "./components/WindowQuestion";
+    import LoadingPage from "./components/LoadingPage";
 
     export default {
         name: 'app',
         components: {
+            LoadingPage,
             WindowQuestion,
             BirthQuestion,
             MusicQuestion,
@@ -39,7 +48,7 @@
         },
         data() {
             return {
-                nowId: 1,
+                nowId: 0,
                 total: {
                     sun: undefined,
                     dream: undefined,
@@ -49,7 +58,6 @@
                     window: undefined,
                     musicAnimId: undefined,
                 },
-                audio: new Audio(),
                 musicStarted: true,
                 musicRotate: 0,
                 showPage: "a"
@@ -57,6 +65,10 @@
         },
         created() {
             this.$bus.$on("answer", (res) => {
+                if (res.id === 0) {
+                    this.nowId = 1;
+                    this.startMusicAnim();
+                }
                 if (res.id === 1 && res.answer === 'a') {
                     this.nowId = 3;
                     this.total.sun = res.answer;
@@ -94,9 +106,6 @@
                     this.countAnswer();
                 }
             });
-        },
-        mounted() {
-            this.startMusicAnim();
         },
         methods: {
             countAnswer: function () {
@@ -204,24 +213,10 @@
                 this.showPage = res;
                 this.nowId = 7;
             },
-            startMusic() {
+            startMusicAnim: async function () {
                 // 播放音乐
-                this.audio.src = "./assets/bg-music.mp3";
-                this.audio.load();
-                this.audio.play().then(() => {
-                    console.log("playing……")
-                }).catch((e) => {
-                    console.error(e);
-                });
-            },
-            stopMusic() {
-                // 停止音乐
-                this.audio.pause();
-                this.audio = new Audio();
-            },
-            startMusicAnim: function () {
-                // 播放音乐
-                this.startMusic();
+                let music = document.getElementById("audio");
+                music.play();
                 this.musicStarted = true;
                 const that = this;
                 //开始滚动动画
@@ -241,9 +236,12 @@
             },
             stopMusicAnim: function () {
                 //停止音乐
-                this.stopMusic();
+                let music = document.getElementById("audio");
+                music.pause();
                 this.musicStarted = false;
-                clearInterval(this.musicAnimId);
+                if (this.musicAnimId) {
+                    clearInterval(this.musicAnimId);
+                }
             },
         },
         beforeDestroy() {
