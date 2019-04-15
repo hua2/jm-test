@@ -53,6 +53,9 @@
                     }, 1000);
                 }
             }, 150);
+            // 播放音乐
+            let music = document.getElementById("audio-question");
+            music.play();
             this.musicCloseId = setTimeout(() => {
                 //停止音乐
                 let music = document.getElementById("audio-question");
@@ -88,13 +91,6 @@
             },
             startMusicAnim: function () {
                 const that = this;
-                // 播放音乐
-                let music = document.getElementById("audio-question");
-                if (!music.paused) {
-                    music.pause();
-                } else {
-                    music.play();
-                }
                 this.musicAnimId = setInterval(function () {
                     let player = document.getElementById("player");
                     let rotateStyle = "rotate(" + that.musicRotate + "deg)";
