@@ -53,7 +53,7 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 2, answer: ans});
-                }, 1000);
+                }, 2000);
 
             }
         }

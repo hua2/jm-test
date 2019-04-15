@@ -61,7 +61,7 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 4, answer: ans});
-                }, 1000);
+                }, 2000);
 
             },
             startPointerAnim: function () {
