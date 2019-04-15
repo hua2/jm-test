@@ -20,6 +20,41 @@
         <audio id="audio-question" preload="auto" loop>
             <source src="./assets/bg-question.mp3">
         </audio>
+        <div id="loading">
+            <!--预先加载图片-->
+            <img src="./assets/bg-birth.png" alt="">
+            <img src="./assets/bg-dream.png" alt="">
+            <img src="./assets/bg-movie.png" alt="">
+            <img src="./assets/bg-music.png" alt="">
+            <img src="./assets/bg-sun.png" alt="">
+            <img src="./assets/bg-window.png" alt="">
+            <img src="./assets/cloud.png" alt="">
+            <img src="./assets/coal.png" alt="">
+            <img src="./assets/electricity.png" alt="">
+            <img src="./assets/gas.png" alt="">
+            <img src="./assets/kun.png" alt="">
+            <img src="./assets/light.png" alt="">
+            <img src="./assets/meteor.png" alt="">
+            <img src="./assets/movie-line.png" alt="">
+            <img src="./assets/oil.png" alt="">
+            <img src="./assets/people.png" alt="">
+            <img src="./assets/player.png" alt="">
+            <img src="./assets/sun-down.png" alt="">
+            <img src="./assets/sun-rise.png" alt="">
+            <img src="./assets/sunset.png" alt="">
+            <img src="./assets/wind.png" alt="">
+            <img src="./assets/window.png" alt="">
+            <!--预先加载视频-->
+            <video id="videos" preload="auto" loop>
+                <source src="./assets/ele.mp4" type="video/mp4">
+                <source src="./assets/light.mp4" type="video/mp4">
+                <source src="./assets/coal.mp4" type="video/mp4">
+                <source src="./assets/gas.mp4" type="video/mp4">
+                <source src="./assets/gas.mp4" type="video/mp4">
+                <source src="./assets/oil.mp4" type="video/mp4">
+                <source src="./assets/wind.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
 </template>
 
@@ -266,6 +301,12 @@
     #app, .page {
         width: 100%;
         height: 100%;
+        z-index: 1;
+    }
+
+    #loading {
+        opacity: 0;
+        z-index: -1;
     }
 
     .sun {

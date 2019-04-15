@@ -2,35 +2,32 @@
     <div class="floorPage">
         <div id="ele" v-if="showPage==='a'">
             <img src="../assets/electricity.png" :class="{shadow:gif}" alt="">
-            <video src="../assets/ele.mp4" type="video/mp4" autoplay="autoplay" v-if="gif"></video>
-            <a class="link" href="http://www.jm.energy"></a>
         </div>
+        <a class="link" href="http://www.jm.energy"></a>
         <div id="light" v-if="showPage==='f'">
             <img src="../assets/light.png" :class="{shadow:gif}" alt="">
-            <video src="../assets/light.mp4" type="video/mp4" autoplay="autoplay" v-if="gif"></video>
-            <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="coal" v-if="showPage==='c'">
             <img src="../assets/coal.png" :class="{shadow:gif}" alt="">
-            <video src="../assets/coal.mp4" type="video/mp4" autoplay="autoplay" v-if="gif"></video>
-            <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="gas" v-if="showPage==='e'">
             <img src="../assets/gas.png" :class="{shadow:gif}" alt="">
-            <video src="../assets/gas.mp4" type="video/mp4" autoplay="autoplay" v-if="gif"></video>
-            <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="oil" v-if="showPage==='b'">
             <img src="../assets/oil.png" :class="{shadow:gif}" alt="">
-            <video src="../assets/oil.mp4" type="video/mp4" autoplay="autoplay"  v-if="gif"></video>
-            <a class="link" href="http://www.jm.energy"></a>
         </div>
         <div id="wind" v-if="showPage==='d'">
             <img src="../assets/wind.png" :class="{shadow:gif}" alt="">
-            <video src="../assets/wind.mp4" type="video/mp4" autoplay="autoplay" v-if="gif"></video>
-            <a class="link" href="http://www.jm.energy"></a>
         </div>
-
+        <video autoplay="autoplay" loop v-if="gif">
+            <source  v-if="showPage==='a'" src="../assets/ele.mp4" type="video/mp4">
+            <source  v-if="showPage==='f'" src="../assets/light.mp4" type="video/mp4">
+            <source  v-if="showPage==='c'" src="../assets/coal.mp4" type="video/mp4">
+            <source  v-if="showPage==='e'" src="../assets/gas.mp4" type="video/mp4">
+            <source  v-if="showPage==='e'" src="../assets/gas.mp4" type="video/mp4">
+            <source  v-if="showPage==='b'" src="../assets/oil.mp4" type="video/mp4">
+            <source  v-if="showPage==='d'" src="../assets/wind.mp4" type="video/mp4">
+        </video>
     </div>
 </template>
 
