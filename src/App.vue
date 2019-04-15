@@ -103,7 +103,7 @@
                     window: undefined,
                     musicAnimId: undefined,
                 },
-                musicStarted: true,
+                musicStarted: false,
                 musicRotate: 0,
                 showPage: "a"
             }
@@ -147,10 +147,13 @@
                 }
                 if (res.id === 5) {
                     this.total.birth = res.answer;
-                    this.countAnswer();
+                    this.nowId = 9;
                 }
                 if (res.id === 6) {
                     this.total.window = res.answer;
+                    this.nowId = 9;
+                }
+                if (res.id === 9) {
                     this.countAnswer();
                 }
             });
@@ -261,7 +264,10 @@
                 this.showPage = res;
                 this.nowId = 7;
             },
-            startMusicAnim: async function () {
+            startMusicAnim: function () {
+                if (this.musicStarted) {
+                    return;
+                }
                 // 播放音乐
                 let music = document.getElementById("audio");
                 music.play();
@@ -320,6 +326,9 @@
     #loading {
         opacity: 0;
         z-index: -1;
+        width: 1rem;
+        height: 1rem;
+        overflow: hidden;
     }
 
     .sun {
@@ -356,6 +365,7 @@
         background: url("./assets/bg-start.png");
         background-size: 100% 100%;
     }
+
     .end {
         background: url("./assets/bg-start.png");
         background-size: 100% 100%;
