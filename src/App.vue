@@ -370,7 +370,7 @@
     }
 
     .choose-content .button {
-        width: 0.13rem;
+        width: 0.14rem;
         height: 0.14rem;
         display: block;
         margin: auto 0;
