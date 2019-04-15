@@ -13,14 +13,15 @@
         </div>
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
-        <audio id="audio" preload="auto" loop>
-            <source src="./assets/bg-music.mp3">
-        </audio>
-
-        <audio id="audio-question" preload="auto" loop>
-            <source src="./assets/bg-question.mp3">
-        </audio>
         <div id="loading">
+            <!--预先加载声音-->
+            <audio id="audio" preload="auto" loop>
+                <source src="./assets/bg-music.mp3">
+            </audio>
+
+            <audio id="audio-question" preload="auto" loop>
+                <source src="./assets/bg-question.mp3">
+            </audio>
             <!--预先加载图片-->
             <img src="./assets/bg-birth.png" alt="">
             <img src="./assets/bg-dream.png" alt="">
