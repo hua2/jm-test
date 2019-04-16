@@ -45,7 +45,7 @@
         created() {
             setTimeout(() => {
                 this.gif = false
-            }, 1600);
+            }, 3000);
         },
         methods: {}
     }
