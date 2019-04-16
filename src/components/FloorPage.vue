@@ -19,7 +19,7 @@
         <div id="wind" v-if="showPage==='d'">
             <img src="../assets/wind.png" :class="{shadow:gif}" alt="">
         </div>
-        <video autoplay muted id="vid">
+        <video autoplay loop muted playsinline id="vid">
             <source v-if="showPage==='a'" src="../assets/ele.mp4" type="video/mp4">
             <source v-if="showPage==='f'" src="../assets/light.mp4" type="video/mp4">
             <source v-if="showPage==='c'" src="../assets/coal.mp4" type="video/mp4">
