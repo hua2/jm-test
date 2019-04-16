@@ -1,33 +1,32 @@
 <template>
-    <div id="floorPage" class="floorPage">
+    <div class="floorPage">
         <div id="ele" v-if="showPage==='a'">
-            <img src="../assets/electricity.png" :class="{shadow:gif}" alt="">
+            <img src="../assets/ele.png" :class="{shadow:gif}" alt="">
+            <img src="../assets/ele.gif" alt="" v-if="gif">
         </div>
-        <a class="link" href="http://www.jm.energy"></a>
+        <a class="link" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg2MDAzOTgwMA==#wechat_redirect"></a>
+        <a class="share" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg2MDAzOTgwMA==#wechat_redirect"></a>
         <div id="light" v-if="showPage==='f'">
             <img src="../assets/light.png" :class="{shadow:gif}" alt="">
+            <img src="../assets/light.gif" alt="" v-if="gif">
         </div>
         <div id="coal" v-if="showPage==='c'">
             <img src="../assets/coal.png" :class="{shadow:gif}" alt="">
+            <img src="../assets/coal.gif" alt="" v-if="gif">
         </div>
         <div id="gas" v-if="showPage==='e'">
             <img src="../assets/gas.png" :class="{shadow:gif}" alt="">
+            <img src="../assets/gas.gif" alt="" v-if="gif">
         </div>
         <div id="oil" v-if="showPage==='b'">
             <img src="../assets/oil.png" :class="{shadow:gif}" alt="">
+            <img src="../assets/oil.gif" alt="" v-if="gif">
         </div>
         <div id="wind" v-if="showPage==='d'">
             <img src="../assets/wind.png" :class="{shadow:gif}" alt="">
+            <img src="../assets/wind.gif" alt="" v-if="gif">
         </div>
-        <video autoplay loop muted playsinline id="vid">
-            <source v-if="showPage==='a'" src="../assets/ele.mp4" type="video/mp4">
-            <source v-if="showPage==='f'" src="../assets/light.mp4" type="video/mp4">
-            <source v-if="showPage==='c'" src="../assets/coal.mp4" type="video/mp4">
-            <source v-if="showPage==='e'" src="../assets/gas.mp4" type="video/mp4">
-            <source v-if="showPage==='e'" src="../assets/gas.mp4" type="video/mp4">
-            <source v-if="showPage==='b'" src="../assets/oil.mp4" type="video/mp4">
-            <source v-if="showPage==='d'" src="../assets/wind.mp4" type="video/mp4">
-        </video>
+
     </div>
 </template>
 
@@ -46,7 +45,7 @@
         created() {
             setTimeout(() => {
                 this.gif = false
-            }, 2000);
+            }, 1600);
         },
         methods: {}
     }
@@ -86,10 +85,18 @@
     }
 
     .link {
-        width: 1.45rem;
-        height: 0.62rem;
-        left: 0.35rem;
-        bottom: 0.3rem;
+        width: 1rem;
+        height: 0.4rem;
+        left: 0.38rem;
+        bottom: 0.6rem;
+        position: absolute;
+        z-index: 101;
+    }
+    .share {
+        width: 1rem;
+        height: 0.4rem;
+        right: 1.25rem;
+        bottom: 0.6rem;
         position: absolute;
         z-index: 101;
     }

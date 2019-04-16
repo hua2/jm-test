@@ -36,7 +36,7 @@
             <img src="./assets/start-btn.png" alt="">
             <img src="./assets/cloud.png" alt="">
             <img src="./assets/coal.png" alt="">
-            <img src="./assets/electricity.png" alt="">
+            <img src="./assets/ele.png" alt="">
             <img src="./assets/gas.png" alt="">
             <img src="./assets/kun.png" alt="">
             <img src="./assets/light.png" alt="">
@@ -52,16 +52,25 @@
             <img src="./assets/window.png" alt="">
             <img src="./assets/movie-active.png" alt="">
             <img src="./assets/option-selected.png" alt="">
+            <img src="./assets/big-sunrise.png" alt="">
+            <img src="./assets/big-sundown.png" alt="">
             <!--预先加载视频-->
-            <video id="videos" preload="auto" loop muted>
-                <source src="./assets/ele.mp4" type="video/mp4">
-                <source src="./assets/light.mp4" type="video/mp4">
-                <source src="./assets/coal.mp4" type="video/mp4">
-                <source src="./assets/gas.mp4" type="video/mp4">
-                <source src="./assets/gas.mp4" type="video/mp4">
-                <source src="./assets/oil.mp4" type="video/mp4">
-                <source src="./assets/wind.mp4" type="video/mp4">
-            </video>
+            <!--<video id="videos" preload="auto" loop muted>-->
+                <!--<source src="./assets/ele.mp4" type="video/mp4">-->
+                <!--<source src="./assets/light.mp4" type="video/mp4">-->
+                <!--<source src="./assets/coal.mp4" type="video/mp4">-->
+                <!--<source src="./assets/gas.mp4" type="video/mp4">-->
+                <!--<source src="./assets/gas.mp4" type="video/mp4">-->
+                <!--<source src="./assets/oil.mp4" type="video/mp4">-->
+                <!--<source src="./assets/wind.mp4" type="video/mp4">-->
+            <!--</video>-->
+            <!--预先加载GIF-->
+            <img src="./assets/ele.gif" alt="">
+            <img src="./assets/light.gif" alt="">
+            <img src="./assets/wind.gif" alt="">
+            <img src="./assets/oil.gif" alt="">
+            <img src="./assets/coal.gif" alt="">
+            <img src="./assets/gas.gif" alt="">
         </div>
     </div>
 </template>
@@ -369,7 +378,7 @@
     }
 
     .end {
-        background: url("./assets/bg-start.png");
+        background: url("./assets/bg-end.png");
         background-size: 100% 100%;
     }
 
@@ -443,7 +452,7 @@
         height: 1.06rem;
         position: absolute;
         left: 0.22rem;
-        top: -0.22rem;
+        top: -0.24rem;
         background: url("./assets/option-selected.png");
         padding: 0 0.2rem;
         background-size: 100% 100%;

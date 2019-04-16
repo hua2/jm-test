@@ -21,6 +21,12 @@
                 </div>
             </div>
         </transition>
+        <!--<transition name="fade">-->
+            <!--<div class="big">-->
+                <!--<img src="../assets/big-sunrise.png" alt="" v-if="active==='a'">-->
+                <!--<img src="../assets/big-sundown.png" alt="" v-if="active==='b'">-->
+            <!--</div>-->
+        <!--</transition>-->
     </div>
 </template>
 
@@ -69,5 +75,18 @@
         width: 100%;
         height: 100%;
     }
+
+    /*.big {*/
+        /*position: absolute;*/
+        /*top: 178px;*/
+        /*left: 70px;*/
+        /*z-index: 101;*/
+
+    /*}*/
+    /*.big img{*/
+        /*width: 2.33rem;*/
+        /*height: 3.09rem;*/
+        /*box-shadow: -1px 1px 3px 5px rgba(0, 0, 0, 0.8);*/
+    /*}*/
 
 </style>
