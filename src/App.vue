@@ -52,18 +52,6 @@
             <img src="./assets/window.png" alt="">
             <img src="./assets/movie-active.png" alt="">
             <img src="./assets/option-selected.png" alt="">
-            <img src="./assets/big-sunrise.png" alt="">
-            <img src="./assets/big-sundown.png" alt="">
-            <!--预先加载视频-->
-            <!--<video id="videos" preload="auto" loop muted>-->
-                <!--<source src="./assets/ele.mp4" type="video/mp4">-->
-                <!--<source src="./assets/light.mp4" type="video/mp4">-->
-                <!--<source src="./assets/coal.mp4" type="video/mp4">-->
-                <!--<source src="./assets/gas.mp4" type="video/mp4">-->
-                <!--<source src="./assets/gas.mp4" type="video/mp4">-->
-                <!--<source src="./assets/oil.mp4" type="video/mp4">-->
-                <!--<source src="./assets/wind.mp4" type="video/mp4">-->
-            <!--</video>-->
             <!--预先加载GIF-->
             <img src="./assets/ele.gif" alt="">
             <img src="./assets/light.gif" alt="">

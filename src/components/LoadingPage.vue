@@ -28,7 +28,7 @@
             preload: function () {
                 // 模拟加载
                 this.loadingIntervalId = setInterval(() => {
-                    this.count++;
+                    this.count = this.count + 2;
                 }, 30);
             },
             // start: function () {

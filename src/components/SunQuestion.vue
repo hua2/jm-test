@@ -5,28 +5,22 @@
         </div>
         <transition name="fade">
             <div class="img" v-if="showUnKnow">
-                <div @click="chooseAnswer('a')">
+                <div @click="chooseAnswer('a')" v-if="!chooseAns||(chooseAns&&active==='a')">
                     <img src="../assets/sun-rise.png" alt="" :class="{active:active ==='a'}">
-                    <div class="choose-content">
+                    <div class="choose-content" v-if="!chooseAns">
                         <span class="button" :class="{active:active ==='a'}"></span>
                         <span class="text">日出</span>
                     </div>
                 </div>
-                <div @click="chooseAnswer('b')">
+                <div @click="chooseAnswer('b')" v-if="!chooseAns||(chooseAns&&active==='b')">
                     <img src="../assets/sun-down.png" alt="" :class="{active:active ==='b'}">
-                    <div class="choose-content">
+                    <div class="choose-content" v-if="!chooseAns">
                         <span class="button" :class="{active:active ==='b'}"></span>
                         <span class="text">日落</span>
                     </div>
                 </div>
             </div>
         </transition>
-        <!--<transition name="fade">-->
-            <!--<div class="big">-->
-                <!--<img src="../assets/big-sunrise.png" alt="" v-if="active==='a'">-->
-                <!--<img src="../assets/big-sundown.png" alt="" v-if="active==='b'">-->
-            <!--</div>-->
-        <!--</transition>-->
     </div>
 </template>
 
@@ -39,7 +33,8 @@
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
-                chooseAnswerId: undefined
+                chooseAnswerId: undefined,
+                chooseAns: false
             }
         },
         created() {
@@ -58,6 +53,7 @@
         methods: {
             chooseAnswer: function (ans) {
                 this.active = ans;
+                this.chooseAns = true;
                 if (this.chooseAnswerId) {
                     clearTimeout(this.chooseAnswerId)
                 }
@@ -76,17 +72,18 @@
         height: 100%;
     }
 
-    /*.big {*/
-        /*position: absolute;*/
-        /*top: 178px;*/
-        /*left: 70px;*/
-        /*z-index: 101;*/
+    .img img {
+        transition: transform 1s, opacity 100ms;
+        transform: scale(1);
+    }
 
-    /*}*/
-    /*.big img{*/
-        /*width: 2.33rem;*/
-        /*height: 3.09rem;*/
-        /*box-shadow: -1px 1px 3px 5px rgba(0, 0, 0, 0.8);*/
-    /*}*/
-
+    .img img.active {
+        display: block;
+        opacity: 1;
+        position: absolute;
+        left: 1rem;
+        z-index: 999;
+        top: 2.5rem;
+        transform: scale(1.8);
+    }
 </style>
