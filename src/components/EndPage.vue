@@ -1,9 +1,7 @@
 <template>
     <div id="end-page">
         <div class="text">
-            <p v-if="showLine===1">角马大数据开始运算<span>{{showWord}}</span></p>
-            <p v-if="showLine===2">正在捕捉高能粒子<span>{{showWord}}</span></p>
-            <p v-if="showLine===3">能源属性生成<span>{{showWord}}</span></p>
+            <p>{{showLine}}<span>{{showWord}}</span></p>
         </div>
     </div>
 </template>
@@ -15,20 +13,22 @@
             return {
                 word: "...",
                 showWord: "",
-                showLine: 0,
+                showLine: "角马大数据开始运算",
                 showWordId: undefined,
                 showLineId: undefined
             }
         },
         created() {
             let i = 0;
+            let line = 1;
             const that = this;
             this.showLineId = setInterval(function () {
-                that.showLine++;
-                if ( that.showLine === 3) {
+                line++;
+                that.showLine = (line === 2 ? "正在捕捉高能粒子" : "能源属性生成中");
+                if (line === 3) {
                     clearInterval(this.showLineId);
                 }
-            }, 600);
+            }, 1200);
             this.showWordId = setInterval(function () {
                 that.showWord = that.word.substr(0, i);
                 i++;
@@ -38,7 +38,7 @@
             }, 200);
             setTimeout(() => {
                 this.$bus.$emit("answer", {id: 9});
-            }, 3000000)
+            }, 4000)
         },
         beforeDestroy() {
             if (this.showLineId) {
