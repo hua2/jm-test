@@ -116,7 +116,7 @@
         width: 2.78rem;
         height: 0.84rem;
         margin: 0 auto;
-        text-align: left;
+        text-align: justify;
         font-size: 0.16rem;
         color: rgba(255, 255, 255, 1);
         line-height: 0.3rem;
