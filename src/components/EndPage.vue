@@ -1,9 +1,9 @@
 <template>
     <div id="end-page">
         <div class="text">
-            <p>角马大数据开始运算<span>{{showWord}}</span> </p>
-            <p>正在捕捉高能粒子<span>{{showWord}}</span> </p>
-            <p>能源属性生成<span>{{showWord}}</span></p>
+            <p v-if="showLines.includes(1)">角马大数据开始运算<span>{{showWord}}</span></p>
+            <p v-if="showLines.includes(2)">正在捕捉高能粒子<span>{{showWord}}</span></p>
+            <p v-if="showLines.includes(3)">能源属性生成<span>{{showWord}}</span></p>
         </div>
     </div>
 </template>
@@ -15,12 +15,22 @@
             return {
                 word: "...",
                 showWord: "",
-                showWordId: undefined
+                showLines: [],
+                showWordId: undefined,
+                showLineId: undefined
             }
         },
         created() {
             let i = 0;
+            let line = 0;
             const that = this;
+            this.showLineId = setInterval(function () {
+                line++;
+                that.showLines.push(line);
+                if (line === 3) {
+                    clearInterval(this.showLineId);
+                }
+            }, 600);
             this.showWordId = setInterval(function () {
                 that.showWord = that.word.substr(0, i);
                 i++;
@@ -33,6 +43,9 @@
             }, 3000000)
         },
         beforeDestroy() {
+            if (this.showLine) {
+                clearInterval(this.showLine);
+            }
             if (this.showWordId) {
                 clearInterval(this.showWordId);
             }
@@ -54,22 +67,26 @@
         background: url("../assets/ball.png");
         background-size: 100% 100%;
     }
-    .text p{
-        height:0.21rem;
-        font-size:0.17rem;
-        color:rgba(255,255,255,1);
-        line-height:0.21rem;
-        letter-spacing:0.05rem;
+
+    .text p {
+        height: 0.21rem;
+        font-size: 0.17rem;
+        color: rgba(255, 255, 255, 1);
+        line-height: 0.21rem;
+        letter-spacing: 0.05rem;
         text-align: center;
         padding-top: 0.81rem;
-        text-shadow:0 0.04rem 0.08rem rgba(39,39,39,1);
+        text-shadow: 0 0.04rem 0.08rem rgba(39, 39, 39, 1);
     }
-    .text p:nth-child(2){
+
+    .text p:nth-child(2) {
         padding-top: 0.1rem;
     }
-    .text p:nth-child(3){
+
+    .text p:nth-child(3) {
         padding-top: 0.1rem;
     }
+
     .text span {
         position: absolute;
 
