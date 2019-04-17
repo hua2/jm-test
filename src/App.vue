@@ -52,6 +52,7 @@
             <img src="./assets/window.png" alt="">
             <img src="./assets/movie-active.png" alt="">
             <img src="./assets/option-selected.png" alt="">
+            <img src="./assets/ball.png" alt="">
             <!--预先加载GIF-->
             <img src="./assets/ele.gif" alt="">
             <img src="./assets/light.gif" alt="">
@@ -366,7 +367,7 @@
     }
 
     .end {
-        background: url("./assets/bg-end.png");
+        background: url("./assets/bg-start.png");
         background-size: 100% 100%;
     }
 

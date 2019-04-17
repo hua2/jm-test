@@ -1,7 +1,9 @@
 <template>
     <div id="end-page">
-        <div class="text">能源属性生成
-            <span>{{showWord}}</span>
+        <div class="text">
+            <p>角马大数据开始运算<span>{{showWord}}</span> </p>
+            <p>正在捕捉高能粒子<span>{{showWord}}</span> </p>
+            <p>能源属性生成<span>{{showWord}}</span></p>
         </div>
     </div>
 </template>
@@ -28,7 +30,7 @@
             }, 200);
             setTimeout(() => {
                 this.$bus.$emit("answer", {id: 9});
-            }, 2000)
+            }, 3000000)
         },
         beforeDestroy() {
             if (this.showWordId) {
@@ -45,18 +47,32 @@
     }
 
     .text {
-        height: 0.3rem;
-        font-size: 0.24rem;
-        color: rgba(255, 255, 255, 1);
-        line-height: 0.3rem;
-        letter-spacing: 0.05rem;
-        display: block;
-        text-align: center;
-        width: 100%;
-        padding-top: 3rem;
+        width: 3.07rem;
+        height: 2.43rem;
+        margin: 2.17rem auto 0 auto;
+        z-index: 101;
+        background: url("../assets/ball.png");
+        background-size: 100% 100%;
     }
-    .text span{
+    .text p{
+        height:0.21rem;
+        font-size:0.17rem;
+        color:rgba(255,255,255,1);
+        line-height:0.21rem;
+        letter-spacing:0.05rem;
+        text-align: center;
+        padding-top: 0.81rem;
+        text-shadow:0 0.04rem 0.08rem rgba(39,39,39,1);
+    }
+    .text p:nth-child(2){
+        padding-top: 0.1rem;
+    }
+    .text p:nth-child(3){
+        padding-top: 0.1rem;
+    }
+    .text span {
         position: absolute;
 
     }
+
 </style>
