@@ -29,7 +29,7 @@
                 },
                 words: [{
                     word: "一个人的心理不只是生物本能，",
-                    speed: 300,
+                    speed: 200,
                     line: "line1",
                 }, {
                     word: "而是生活环境，社会文化与人际关系的共同左右。",
@@ -37,11 +37,11 @@
                     line: "line1",
                 }, {
                     word: "每个人的身上都被贴着各种各样的标签，",
-                    speed: 300,
+                    speed: 60,
                     line: "line2",
                 }, {
                     word: "各种能源也是，来看一下你的能源属性吧？",
-                    speed: 100,
+                    speed: 60,
                     line: "line2",
                 }],
                 showStart: false,

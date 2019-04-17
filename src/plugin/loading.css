@@ -4,12 +4,12 @@
     position: absolute;
     left: 50%;
     margin-left: -100px;
-    top: 50%;
+    top: 30%;
     margin-top: -100px;
 }
 
 .hex-brick{
-    background: #ABF8FF;
+    background: #fff;
     width: 30px;
     height: 17px;
     position: absolute;
@@ -324,15 +324,15 @@
 
 @keyframes fade{
     0%{
-        background: #ABF8FF;
+        background: #fff;
     }
 
     50%{
-        background: #90BBBF;
+        background: #fff;
     }
 
     100%{
-        background: #ABF8FF;
+        background: #fff;
     }
 }
 
@@ -355,14 +355,14 @@
 
 @-webkit-keyframes fade{
     0%{
-        background: #ABF8FF;
+        background: #fff;
     }
 
     50%{
-        background: #389CA6;
+        background: #fff;
     }
 
     100%{
-        background: #ABF8FF;
+        background: #fff;
     }
 }
