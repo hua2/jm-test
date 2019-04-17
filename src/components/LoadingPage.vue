@@ -1,6 +1,5 @@
 <template>
     <div id="loading-panel">
-<!--        <h1><strong>Loading...</strong></h1>-->
         <div class="socket">
             <div class="gel center-gel">
                 <div class="hex-brick h1"></div>
@@ -195,6 +194,7 @@
 </template>
 
 <script>
+
     export default {
         name: "LoadingPage",
         created() {
@@ -206,7 +206,7 @@
                 loaded: false,
                 percent: '',
                 loadingIntervalId: '',
-
+                publicPath: process.env.BASE_URL
             }
         },
         mounted: function () {
@@ -214,27 +214,27 @@
         },
         methods: {
             preload: function () {
-                // 模拟加载
-                this.loadingIntervalId = setInterval(() => {
-                    this.count ++
-                }, 20);
+                // 定义loader
+                let manifest = [
+                    {src: this.publicPath + "assets/media/bg-music.mp3", id: "music"},
+                    {src: this.publicPath + "assets/media/bg-question.mp3", id: "question"},
+                ];
+                /* eslint-disable no-undef */
+                let loader = new createjs.LoadQueue();
+                // 添加声音支持
+                loader.installPlugin(createjs.Sound);
+
+                loader.addEventListener('progress', (e) => {
+                    this.percent = Math.round(e.progress * 100) + "%";
+                });
+                loader.addEventListener('complete', () => {
+                    setTimeout(() => {
+                        this.$bus.$emit("answer", {id: 0});
+                    }, 1000);
+
+                });
+                loader.loadManifest(manifest);
             },
-            // start: function () {
-            //     let music = document.getElementById("audio");
-            //     music.play();
-            //     this.$bus.$emit("answer", {id: 0});
-            // }
-        },
-        watch: {
-            count: function (val) {
-                let percentNum = Math.floor(this.count / 100 * 100);
-                this.percent = `${percentNum}%`;
-                if (val === 100) {
-                    this.loaded = true;
-                    clearInterval(this.loadingIntervalId);
-                    this.$bus.$emit("answer", {id: 0});
-                }
-            }
         }
     }
 </script>

@@ -1,3 +1,5 @@
 module.exports = {
-    publicPath:''
-}
+    publicPath: '',
+    assetsDir:'assets',
+    filenameHashing: false
+};

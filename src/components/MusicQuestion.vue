@@ -41,6 +41,7 @@
                 active: undefined,
                 chooseAnswerId: undefined,
                 musicAnimId: undefined,
+                instanceQuestion: undefined,
                 musicStarted: false,
                 musicRotate: 0,
             }
@@ -129,13 +130,17 @@
             },
             startQuestionMusic: function () {
                 // 播放音乐
-                let music = document.getElementById("question");
-                music.play();
+                /* eslint-disable no-undef */
+                if (this.instanceQuestion) {
+                    this.instanceQuestion.paused = false;
+                    return;
+                }
+                this.instanceQuestion = createjs.Sound.play("question", {loop: -1});
             },
             stopQuestionMusic: function () {
-                //停止音乐
-                let music = document.getElementById("question");
-                music.pause();
+                // 仅暂停
+                /* eslint-disable no-undef */
+                this.instanceQuestion.paused = true;
             }
         },
         beforeDestroy() {

@@ -6,7 +6,6 @@
         </div>
         <a class="link" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg2MDAzOTgwMA==#wechat_redirect"></a>
         <div class="share" @click="shareTo"></div>
-        <img src="../assets/closeShare.png" alt="" v-if="share" id="top" @click="closeShare">
         <div id="light" v-if="showPage==='f'">
             <img src="../assets/light.png" :class="{shadow:gif}" alt="">
             <img src="../assets/light.gif" alt="" v-if="gif">
@@ -41,7 +40,6 @@
         data() {
             return {
                 gif: true,
-                share: false,
             };
         },
         created() {
@@ -51,10 +49,7 @@
         },
         methods: {
             shareTo: function () {
-                this.share = true
-            },
-            closeShare: function () {
-                this.share = false
+                document.getElementById("share").style.display = "block";
             },
         }
     }
@@ -97,12 +92,5 @@
         bottom: 0.6rem;
         position: absolute;
         z-index: 101;
-    }
-    #top{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top:0;
-        left:0;
     }
 </style>

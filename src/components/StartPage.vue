@@ -29,11 +29,11 @@
                 },
                 words: [{
                     word: "一个人的心理不只是生物本能，",
-                    speed: 200,
+                    speed: 150,
                     line: "line1",
                 }, {
                     word: "而是生活环境，社会文化与人际关系的共同左右。",
-                    speed: 100,
+                    speed: 80,
                     line: "line1",
                 }, {
                     word: "每个人的身上都被贴着各种各样的标签，",
@@ -52,8 +52,6 @@
         },
         methods: {
             start: function () {
-                let music = document.getElementById("audio");
-                music.play();
                 this.$bus.$emit("answer", {id: 8});
             },
             initWord: async function (j = 0) {
@@ -93,7 +91,7 @@
     }
 
     .title h1 {
-        font-size: 0.28rem;
+        font-size: 0.26rem;
         height: 0.35rem;
         color: rgba(255, 255, 255, 1);
         line-height: 0.35rem;
@@ -102,7 +100,7 @@
 
     .center {
         width: 100%;
-        height: 3rem;
+        height: fit-content;
         text-align: center;
         padding: 0.5rem 0 0 0;
         color: rgba(255, 255, 255, 1);
@@ -113,20 +111,17 @@
     }
 
     .center p {
-        width: 2.78rem;
-        height: 0.84rem;
+        width: 2.64rem;
+        height: fit-content;
         margin: 0 auto;
+        line-height: 0.3rem;
         text-align: justify;
         font-size: 0.16rem;
         color: rgba(255, 255, 255, 1);
-        line-height: 0.3rem;
-        letter-spacing: 0.06rem;
         text-shadow: 0 0.02rem 0.2rem rgba(0, 0, 0, 0.5);
     }
-
     .center p:nth-child(2) {
-        height: 1.2rem;
-        padding-bottom: 1.35rem;
+        padding-bottom: 0.5rem;
         padding-top: 0.45rem;
     }
 

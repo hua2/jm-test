@@ -16,15 +16,8 @@
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
              v-if="nowId===1|| nowId===2|| nowId===3|| nowId===5|| nowId===6"
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
+        <img src="./assets/closeShare.png" alt="" id="share" @click="closeShare">
         <div id="loading">
-            <!--预先加载声音-->
-            <audio id="audio" preload="auto" loop>
-                <source src="./assets/bg-music.mp3">
-            </audio>
-
-            <audio id="questionLoad" preload="auto" loop>
-                <source src="./assets/bg-question.mp3">
-            </audio>
             <!--预先加载图片-->
             <img src="./assets/bg-birth.png" alt="">
             <img src="./assets/bg-dream.png" alt="">
@@ -106,6 +99,7 @@
                     musicAnimId: undefined,
                 },
                 musicStarted: false,
+                instanceMusic: undefined,
                 musicRotate: 0,
                 showPage: "a"
             }
@@ -271,8 +265,7 @@
                     return;
                 }
                 // 播放音乐
-                let music = document.getElementById("audio");
-                music.play();
+                this.startMusic();
                 this.musicStarted = true;
                 const that = this;
                 //开始滚动动画
@@ -292,13 +285,28 @@
             },
             stopMusicAnim: function () {
                 //停止音乐
-                let music = document.getElementById("audio");
-                music.pause();
+                this.stopMusic();
                 this.musicStarted = false;
                 if (this.musicAnimId) {
                     clearInterval(this.musicAnimId);
                 }
-            }
+            },
+            startMusic: function () {
+                /* eslint-disable no-undef */
+                if (this.instanceMusic) {
+                    this.instanceMusic.paused = false;
+                    return;
+                }
+                this.instanceMusic = createjs.Sound.play("music", {loop: -1});
+            },
+            stopMusic: function () {
+                // 仅暂停
+                /* eslint-disable no-undef */
+                this.instanceMusic.paused = true;
+            },
+            closeShare: function () {
+                document.getElementById("share").style.display = "none";
+            },
         },
         beforeDestroy() {
             this.stopMusicAnim();
@@ -449,6 +457,7 @@
         background-size: 100% 100%;
         z-index: 100;
     }
+
     .choose-content .text {
         width: 0.4rem;
         height: 0.28rem;
@@ -469,6 +478,7 @@
         background-size: 100% 100%;
         z-index: 101;
     }
+
     .choose-content .text {
         z-index: 101;
     }
@@ -478,6 +488,15 @@
         background-size: 100% 100%;
     }
 
+    #share{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: 999;
+        display: none;
+    }
     .fade-enter-active, .fade-leave-active {
         transition: opacity 2s;
     }
