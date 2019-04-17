@@ -43,8 +43,8 @@
             }, 3000000)
         },
         beforeDestroy() {
-            if (this.showLine) {
-                clearInterval(this.showLine);
+            if (this.showLineId) {
+                clearInterval(this.showLineId);
             }
             if (this.showWordId) {
                 clearInterval(this.showWordId);
