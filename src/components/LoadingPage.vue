@@ -228,9 +228,7 @@
                     this.percent = Math.round(e.progress * 100) + "%";
                 });
                 loader.addEventListener('complete', () => {
-                    setTimeout(() => {
-                        this.$bus.$emit("answer", {id: 0});
-                    }, 1000);
+                    this.$bus.$emit("answer", {id: 0});
 
                 });
                 loader.loadManifest(manifest);

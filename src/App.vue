@@ -18,6 +18,13 @@
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
         <img src="./assets/closeShare.png" alt="" id="share" @click="closeShare">
         <div id="loading">
+            <!--打包加载声音-->
+            <audio>
+                <source src="./assets/bg-question.mp3">
+            </audio>
+            <audio>
+                <source src="./assets/bg-music.mp3">
+            </audio>
             <!--预先加载图片-->
             <img src="./assets/bg-birth.png" alt="">
             <img src="./assets/bg-dream.png" alt="">
