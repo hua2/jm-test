@@ -33,7 +33,7 @@
         width: 100%;
         height: 0.35rem;
         text-align: center;
-        padding: 1.49rem 0 0 0;
+        padding: 0.9rem 0 0 0;
         color: rgba(255, 255, 255, 1);
         line-height: 0.35rem;
         letter-spacing: 0.06rem;
@@ -44,7 +44,7 @@
     .title h1 {
         font-size: 0.26rem;
         height: 0.35rem;
-        padding-bottom: 0.67rem;
+        padding-bottom: 0.7rem;
     }
 
     .title p {
@@ -54,14 +54,14 @@
         text-align: left;
         font-size: 0.16rem;
         color: rgba(255, 255, 255, 1);
-        line-height: 0.2rem;
-        letter-spacing: 0.03rem;
+        line-height: 0.25rem;
+        letter-spacing: 0.06rem;
         text-shadow: 0 0.02rem 0.2rem rgba(0, 0, 0, 0.5);
     }
 
     .title p:nth-child(3) {
         padding-bottom: 1.35rem;
-        padding-top: 0.22rem;
+        padding-top: 0.45rem;
     }
 
     .title img {

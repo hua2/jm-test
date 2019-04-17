@@ -59,7 +59,7 @@
                 }
                 this.chooseAnswerId = setTimeout(() => {
                     this.$bus.$emit("answer", {id: 1, answer: ans});
-                }, 1000);
+                }, 2000);
 
             }
         }
@@ -81,7 +81,7 @@
         display: block;
         opacity: 1;
         position: absolute;
-        left: 1rem;
+        left: 1.15rem;
         z-index: 999;
         top: 2.5rem;
         transform: scale(1.8);

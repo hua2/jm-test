@@ -14,7 +14,7 @@
             <EndPage v-if="nowId===9"></EndPage>
         </div>
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
-             v-if="nowId===1|| nowId===2|| nowId===3|| nowId===4|| nowId===5|| nowId===6 "
+             v-if="nowId===1|| nowId===2|| nowId===3|| nowId===5|| nowId===6 "
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
         <div id="loading">
             <!--预先加载声音-->
@@ -93,7 +93,7 @@
         },
         data() {
             return {
-                nowId: 9,
+                nowId: 0,
                 total: {
                     sun: undefined,
                     dream: undefined,
