@@ -2,18 +2,15 @@
     <div id="start-page">
         <div class="title">
             <h1>测一测你的能源属性</h1>
-            <!--<p>一个人的心理不只是生物本能，而是生活环境，社会文化与人际关系的共同左右。</p>-->
-            <!--<p> 每个人的身上都被贴着各种各样的标签，各种能源也是，来看一下你的能源属性吧？</p>-->
-            <!--<img src="../assets/start-btn.png" @click="start()"/>-->
         </div>
         <transition name="fade">
             <div class="center">
-                <p>一个人的心理不只是生物本能，而是生活环境，社会文化与人际关系的共同左右。</p>
-                <p> 每个人的身上都被贴着各种各样的标签，各种能源也是，来看一下你的能源属性吧？</p>
+                <p>{{lines.line1}}</p>
+                <p>{{lines.line2}}</p>
             </div>
         </transition>
         <transition name="fade">
-            <div class="photo">
+            <div class="photo" v-if="showStart">
                 <img src="../assets/start-btn.png" @click="start()"/>
             </div>
         </transition>
@@ -24,11 +21,59 @@
 <script>
     export default {
         name: "StartPage",
+        data() {
+            return {
+                lines: {
+                    line1: "",
+                    line2: "",
+                },
+                words: [{
+                    word: "一个人的心理不只是生物本能，",
+                    speed: 300,
+                    line: "line1",
+                }, {
+                    word: "而是生活环境，社会文化与人际关系的共同左右。",
+                    speed: 100,
+                    line: "line1",
+                }, {
+                    word: "每个人的身上都被贴着各种各样的标签，",
+                    speed: 300,
+                    line: "line2",
+                }, {
+                    word: "各种能源也是，来看一下你的能源属性吧？",
+                    speed: 100,
+                    line: "line2",
+                }],
+                showStart: false,
+            }
+        },
+        created() {
+            this.initWord();
+        },
         methods: {
             start: function () {
                 let music = document.getElementById("audio");
                 music.play();
                 this.$bus.$emit("answer", {id: 8});
+            },
+            initWord: async function (j = 0) {
+                const word = this.words[j];
+                if (!word) {
+                    this.showStart = true;
+                    return;
+                }
+                let i = 0;
+                let timer;
+                const w = word.word.split("");
+                const that = this;
+                timer = await setInterval(async () => {
+                    that.lines[word.line] += w[i];
+                    i++;
+                    if (i === w.length) {
+                        clearInterval(timer);
+                        that.initWord(j + 1);
+                    }
+                }, word.speed);
             }
         }
     }
@@ -84,6 +129,7 @@
         padding-bottom: 1.35rem;
         padding-top: 0.45rem;
     }
+
     .photo img {
         width: 1.22rem;
         padding-top: 0.41rem;
