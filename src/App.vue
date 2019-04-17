@@ -54,6 +54,7 @@
             <img src="./assets/option-selected.png" alt="">
             <img src="./assets/ball.png" alt="">
             <img src="./assets/sharedTo.png" alt="">
+            <img src="assets/closeShare.png" alt="">
             <!--预先加载GIF-->
             <img src="./assets/ele.gif" alt="">
             <img src="./assets/light.gif" alt="">
@@ -94,7 +95,7 @@
         },
         data() {
             return {
-                nowId: 5,
+                nowId: 0,
                 total: {
                     sun: undefined,
                     dream: undefined,
