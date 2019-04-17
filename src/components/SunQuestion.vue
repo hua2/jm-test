@@ -81,7 +81,7 @@
         display: block;
         opacity: 1;
         position: absolute;
-        left: 1.15rem;
+        left: 1.1rem;
         z-index: 999;
         top: 2.5rem;
         transform: scale(1.8);

@@ -28,7 +28,7 @@
                 if (line === 3) {
                     clearInterval(this.showLineId);
                 }
-            }, 1200);
+            }, 1000);
             this.showWordId = setInterval(function () {
                 that.showWord = that.word.substr(0, i);
                 i++;
@@ -73,7 +73,7 @@
         line-height: 0.21rem;
         letter-spacing: 0.05rem;
         text-align: center;
-        padding-top: 0.81rem;
+        padding-top: 1rem;
         text-shadow: 0 0.04rem 0.08rem rgba(39, 39, 39, 1);
     }
 
