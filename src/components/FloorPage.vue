@@ -5,9 +5,8 @@
             <img src="../assets/ele.gif" alt="" v-if="gif">
         </div>
         <a class="link" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg2MDAzOTgwMA==#wechat_redirect"></a>
-        <div class="share" @click="shareTo" v-if="share">
-            <img src="../assets/sharedTo.png" alt="">
-        </div>
+        <div class="share" @click="shareTo"></div>
+        <img src="../assets/sharedTo.png" alt="" v-if="share" id="top">
         <div id="light" v-if="showPage==='f'">
             <img src="../assets/light.png" :class="{shadow:gif}" alt="">
             <img src="../assets/light.gif" alt="" v-if="gif">
@@ -71,18 +70,6 @@
         height: 100%;
 
     }
-
-    .floorPage video {
-        width: 100%;
-        height: 100%;
-    }
-
-    canvas {
-        position: absolute;
-        top: 0;
-        z-index: 101;
-    }
-
     .floorPage .shadow {
         position: absolute;
         opacity: 0.01;
@@ -107,5 +94,12 @@
         bottom: 0.6rem;
         position: absolute;
         z-index: 101;
+    }
+    #top{
+        width: 1.1rem;
+        height: 0.54rem;
+        position: absolute;
+        right: 0.4rem;
+        top:-0.25rem
     }
 </style>
