@@ -93,7 +93,7 @@
         },
         data() {
             return {
-                nowId: 9,
+                nowId: 0,
                 total: {
                     sun: undefined,
                     dream: undefined,
