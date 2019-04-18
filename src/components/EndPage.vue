@@ -38,7 +38,7 @@
             }, 200);
             setTimeout(() => {
                 this.$bus.$emit("answer", {id: 9});
-            }, 400000)
+            }, 4000)
         },
         beforeDestroy() {
             if (this.showLineId) {
