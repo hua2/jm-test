@@ -16,7 +16,7 @@
         <div class="icon_audio" :class="{sound_icon_on:musicStarted}" ref="btnAudio"
              v-if="nowId===1|| nowId===2|| nowId===3|| nowId===5|| nowId===6"
              @click="musicStarted?stopMusicAnim():startMusicAnim()"></div>
-        <img src="./assets/closeShare.png" alt="" id="share" @click="closeShare">
+        <img src="assets/shareTo.png" alt="" id="share" @click="closeShare">
         <div id="loading">
             <!--打包加载声音-->
             <audio>
@@ -53,8 +53,7 @@
             <img src="./assets/movie-active.png" alt="">
             <img src="./assets/option-selected.png" alt="">
             <img src="./assets/ball.png" alt="">
-            <img src="./assets/sharedTo.png" alt="">
-            <img src="assets/closeShare.png" alt="">
+            <img src="assets/shareTo.png" alt="">
             <!--预先加载GIF-->
             <img src="./assets/ele.gif" alt="">
             <img src="./assets/light.gif" alt="">
