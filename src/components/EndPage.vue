@@ -38,7 +38,7 @@
             }, 200);
             setTimeout(() => {
                 this.$bus.$emit("answer", {id: 9});
-            }, 4000)
+            }, 400000)
         },
         beforeDestroy() {
             if (this.showLineId) {
@@ -58,8 +58,8 @@
     }
 
     .text {
-        width: 3.07rem;
-        height: 2.43rem;
+        width: 2.84rem;
+        height: 2.31rem;
         margin: 2.17rem auto 0 auto;
         z-index: 101;
         background: url("../assets/ball.png");
