@@ -59,7 +59,7 @@
         name: "MovieQuestion",
         data() {
             return {
-                word: "午饭后\n独自去看电影\n你会选择剩下的那个座位？",
+                word: "午饭后\n独自去看电影\n你会选择剩下的哪个座位？",
                 showWord: '',
                 showUnKnow: false,
                 active: undefined,
